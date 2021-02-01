@@ -38,19 +38,19 @@ store.sync();
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-app.post('/users/login', (req, res) => {
-	//login user
-  req.session.user = user
-  const isPassword = await bcrypt.compare(password, user.hashedPassword)
-  if (isPassword) {
-     return req.session.save(() => {
-      res.redirect('/');
-    });
-  } else {
-    res.render('login')
-  }
+// app.post('/users/login', (req, res) => {
+// 	//login user
+//   req.session.user = user
+//   const isPassword = await bcrypt.compare(password, user.hashedPassword)
+//   if (isPassword) {
+//      return req.session.save(() => {
+//       res.redirect('/');
+//     });
+//   } else {
+//     res.render('login')
+//   }
 
-});
+// });
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
