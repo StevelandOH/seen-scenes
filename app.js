@@ -9,6 +9,7 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const { sessionSecret } = require('./config');
+const {loginUser} = require('./auth')
 
 const app = express();
 
@@ -29,7 +30,8 @@ app.use(
 		secret: sessionSecret,
 		store,
 		saveUninitialized: false,
-		resave: false,
+      resave: false,
+      name: 'seenScenes.sid'
 	})
 );
 
