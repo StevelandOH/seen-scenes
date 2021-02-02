@@ -6,7 +6,7 @@ const { Genre, User } = require("../db/models");
 const csrfProtection = csrf({ cookie: true });
 const { check, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
-const { loginUser } = require('../auth');
+const { loginUser, logoutUser } = require('../auth');
 
 router.get(
   "/register",
@@ -141,6 +141,11 @@ router.post(
       })
   })
 );
+
+router.post('/logout', (req, res) => {
+   logoutUser(req, res);
+   res.redirect("/users/login")
+})
 
 // router.get('/:id(\\d+)', asyncHandler( async( req, res, next ) => {
 

@@ -19,13 +19,16 @@ const restoreUser = async (req, res, next) => {
          }
       } catch (error) {
          res.locals.authenticated = false;
-         next(e);
+         next(error);
       }
    } else {
       res.locals.authenticated = false;
       next();
    }
 }
-//implement and put login errors into login.pug
 
-module.exports = { loginUser, restoreUser }
+const logoutUser = (req, res) => {
+   delete req.session.auth;
+}
+
+module.exports = { loginUser, restoreUser, logoutUser }

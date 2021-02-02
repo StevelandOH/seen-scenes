@@ -24,9 +24,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 // set up session middleware
 const store = new SequelizeStore({ db: sequelize });
 
+
 app.use(
-	session({
-		secret: sessionSecret,
+   session({
+      secret: sessionSecret,
 		store,
 		saveUninitialized: false,
       resave: false,
@@ -37,6 +38,7 @@ app.use(
 // create Session table if it doesn't already exist
 store.sync();
 app.use(restoreUser);
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
