@@ -10,7 +10,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const filmsRouter = require('./routes/films')
 const { sessionSecret } = require('./config');
-const { loginUser } = require('./auth')
+const { restoreUser } = require('./auth')
 
 const app = express();
 
@@ -26,9 +26,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 // set up session middleware
 const store = new SequelizeStore({ db: sequelize });
 
+
 app.use(
-	session({
-		secret: sessionSecret,
+   session({
+      secret: sessionSecret,
 		store,
 		saveUninitialized: false,
 		resave: false,
@@ -38,23 +39,12 @@ app.use(
 
 // create Session table if it doesn't already exist
 store.sync();
+app.use(restoreUser);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/films', filmsRouter)
 
-// app.post('/users/login', (req, res) => {
-// 	//login user
-//   req.session.user = user
-//   const isPassword = await bcrypt.compare(password, user.hashedPassword)
-//   if (isPassword) {
-//      return req.session.save(() => {
-//       res.redirect('/');
-//     });
-//   } else {
-//     res.render('login')
-//   }
-// });
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
