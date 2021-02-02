@@ -18,3 +18,8 @@
 .filmPoster {
   height: 15rem;
 }
+
+body {
+  background-color: #4f4d4d;
+  background-image: url('./img/Protruding-Squares.svg')
+}
