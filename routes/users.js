@@ -81,7 +81,7 @@ router.post(
       user.hashedPassword = hashedPassword;
       await user.save();
       loginUser(req, res, user);
-      res.redirect("/");
+      req.session.save(() => res.redirect("/users/login"))
    } else {
       const errors = validatorErrors.array().map((error) => error.msg);
       res.render("register", {
@@ -126,19 +126,19 @@ router.post(
             const passwordMatch = await bcrypt.compare(password, user.hashedPassword.toString());
             if (passwordMatch) {
                loginUser(req, res, user);
-               return res.redirect("/");
+               req.session.save(() => res.redirect("/"));
             }
          }
          errors.push("Login Failed")
       } else {
          errors = validatorErrors.array().map((error) => error.msg);
+         res.render("login", {
+            title: "Login",
+            email,
+            errors,
+            token: req.csrfToken(),
+         })
       }
-      res.render("login", {
-         title: "Login",
-         email,
-         errors,
-         token: req.csrfToken(),
-      })
   })
 );
 
