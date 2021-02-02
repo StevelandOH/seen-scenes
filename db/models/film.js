@@ -1,34 +1,34 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Film = sequelize.define('Film', {
+   const Film = sequelize.define('Film', {
       title: {
-         type:DataTypes.STRING(50),
-         allowNull:false,
+         type: DataTypes.STRING(50),
+         allowNull: false,
          unique: true,
       },
       director: {
-         type:DataTypes.STRING(50),
-         allowNull:false
+         type: DataTypes.STRING(50),
+         allowNull: false
       },
       description: {
-         type:DataTypes.TEXT,
-         allowNull:false
+         type: DataTypes.TEXT,
+         allowNull: false
       },
       releaseDate: {
-         type:DataTypes.DATEONLY,
-         allowNull:false
+         type: DataTypes.DATEONLY,
+         allowNull: false
       },
       genreId: {
-         type:DataTypes.INTEGER,
-         allowNull:false
+         type: DataTypes.INTEGER,
+         allowNull: false
       },
       posterPath: {
-         type:DataTypes.STRING(1000),
-         allowNull:false
+         type: DataTypes.STRING(1000),
+         allowNull: false
       },
-  }, {});
-  Film.associate = function(models) {
-    // associations can be defined here
-  };
-  return Film;
+   }, {});
+   Film.associate = function (models) {
+      Film.belongsTo(models.Genre, { foreignKey: 'genreId' });
+   };
+   return Film;
 };

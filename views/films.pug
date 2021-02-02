@@ -1,0 +1,15 @@
+extends layout
+
+append head
+  link(rel="stylesheet" href="/stylesheets/films.css")
+  script(src="/javascripts/index.js" type="module" defer)
+
+block content
+  h1 Films
+  div.filmContainer
+    each film in films
+      div.filmBlock
+        a(href=`/films/${film.id}`)
+          img.filmPoster(src= film.posterPath)
+
+

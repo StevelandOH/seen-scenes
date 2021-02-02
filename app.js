@@ -8,8 +8,9 @@ const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const filmsRouter = require('./routes/films')
 const { sessionSecret } = require('./config');
-const {loginUser} = require('./auth')
+const { loginUser } = require('./auth')
 
 const app = express();
 
@@ -30,8 +31,8 @@ app.use(
 		secret: sessionSecret,
 		store,
 		saveUninitialized: false,
-      resave: false,
-      name: 'seenScenes.sid',
+		resave: false,
+		name: 'seenScenes.sid',
 	})
 );
 
@@ -40,6 +41,7 @@ store.sync();
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/films', filmsRouter)
 
 // app.post('/users/login', (req, res) => {
 // 	//login user
