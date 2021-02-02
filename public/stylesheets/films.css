@@ -1,0 +1,20 @@
+.filmContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: darkslategrey;
+  margin: 10px auto;
+  position: relative;
+  text-align:center;
+}
+
+.filmBlock {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+    margin: 10px;
+}
+.filmPoster {
+  height: 15rem;
+}
