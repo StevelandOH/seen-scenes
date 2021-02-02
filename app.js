@@ -31,7 +31,7 @@ app.use(
 		store,
 		saveUninitialized: false,
       resave: false,
-      name: 'seenScenes.sid'
+      name: 'seenScenes.sid',
 	})
 );
 

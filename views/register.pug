@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+html(lang="en")
+   head
+      meta(charset="UTF-8")
+      meta(name="viewport", content="width=device-width, initial-scale=1.0")
+      title=title
+   body
+      form(action="/register" method="post")
+         div
+            label Username
+            input(type="text" name="username" required)
+         div
+            label Email
+            input(type="text" name="email" required)
+         div
+            label Password
+            input(type="text" name="password" required)
+         div
+            label Biography
+            textarea(name="biography" cols="30" rows="10")
+         div
+            label Favorite Genre
+            select(name="genreId")
+               each genre in genres
+                  option(value=genre.id)=genre.name
+         div
+            button(type="submit") Submit
+            input(type="hidden" name="_csrf" value=token)
