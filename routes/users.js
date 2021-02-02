@@ -6,6 +6,7 @@ const { Genre, User } = require("../db/models");
 const csrfProtection = csrf({ cookie: true });
 const { check, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
+const { loginUser } = require('../auth');
 
 router.get(
   "/register",
@@ -79,6 +80,7 @@ router.post(
       const hashedPassword = await bcrypt.hash(password, 10);
       user.hashedPassword = hashedPassword;
       await user.save();
+      loginUser(req, res, user);
       res.redirect("/");
    } else {
       const errors = validatorErrors.array().map((error) => error.msg);
@@ -123,6 +125,7 @@ router.post(
          if (user !== null) {
             const passwordMatch = await bcrypt.compare(password, user.hashedPassword.toString());
             if (passwordMatch) {
+               loginUser(req, res, user);
                return res.redirect("/");
             }
          }
