@@ -20,6 +20,8 @@ router.get('/:id', csrfProtection, asyncHandler(async (req, res) => {
   res.render('films-id', { film })
 }));
 
+router.post('/:id/review/new')
+
 
 
 
