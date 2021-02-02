@@ -1,0 +1,19 @@
+extends layout
+
+append head
+  link(rel="stylesheet" href="/stylesheets/films.css")
+  script(src="/javascripts/index.js" type="module" defer)
+
+block content
+  div
+    h1= film.title
+    br
+    img.filmPoster(src= film.posterPath)
+    br
+    div= `Plot: ${film.description}`
+    br
+    div= `Release Date: ${film.releaseDate}`
+    br
+    div= `Genre: ${film.Genre.name}`
+    div
+

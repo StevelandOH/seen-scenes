@@ -8,8 +8,10 @@ const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const filmsRouter = require('./routes/films')
 const { sessionSecret } = require('./config');
 const { restoreUser } = require('./auth')
+
 const app = express();
 
 // view engine setup
@@ -30,8 +32,8 @@ app.use(
       secret: sessionSecret,
 		store,
 		saveUninitialized: false,
-      resave: false,
-      name: 'seenScenes.sid',
+		resave: false,
+		name: 'seenScenes.sid',
 	})
 );
 
@@ -41,6 +43,7 @@ app.use(restoreUser);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/films', filmsRouter)
 
 
 // catch 404 and forward to error handler
