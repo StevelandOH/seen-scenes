@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
 	);
 	Genre.associate = function (models) {
 		Genre.hasMany(models.User, { foreignKey: 'genreId' });
+		Genre.hasMany(models.Film, { foreignKey: 'genreId' });
 	};
 	return Genre;
 };
