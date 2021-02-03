@@ -2,6 +2,7 @@
 
   const reviewForm = document.querySelector('.review-form')
   const submitReviewButton = document.querySelector('.submit-review-button')
+  const reviewSection = document.querySelector('.reviewContainer')
 
   reviewForm.addEventListener('submit', async(e) => {
     e.preventDefault()
@@ -11,8 +12,6 @@
     const filmId = submitReviewButton.dataset.filmid
     const userId = submitReviewButton.dataset.userid
 
-
-
     const body = { review, filmId, userId }
 
     console.log(body)
@@ -20,22 +19,22 @@
     try {
       const res = await fetch(`/films/${filmId}/review/new`, {
         method: 'POST',
-        body: JSON.stringify(body),
+        body: JSON.stringify({body}),
         headers: {
           "Content-Type": "application/json"
         }
 
       })
 
+      console.log(res.ok)
+
       if (!res.ok) {
-        throw res
+        // throw res
       }
 
     } catch (err) {
-      console.log('something went wrong')
+      console.error(err)
     }
-
-
 
   })
 
