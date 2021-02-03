@@ -1,0 +1,12 @@
+extends layout
+
+block content 
+  h1 title
+  div.reelContainer
+    each reel in reels 
+      div.reelTitle
+        h2(value=reel.id)= reel.name
+          img.filmPoster(src= reel.Film.posterPath)
+          
+
+

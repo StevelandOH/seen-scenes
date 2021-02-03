@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const asyncHandler = require('express-async-handler');
 const csrf = require('csurf');
-const { Genre, User, Reel } = require('../db/models');
+const { Genre, User, Reel, Film } = require('../db/models');
 const csrfProtection = csrf({ cookie: true });
 const { check, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
@@ -160,6 +160,16 @@ router.get(
 		const user = await User.findByPk(id, { include: Genre });
 		console.log(user);
 		res.render('dashboard', { title: 'Dashboard', user }); //maybe add <username>'s Dashboard
+	})
+);
+
+router.get(
+	'/:id/reels',
+	asyncHandler(async (req, res) => {
+		const id = req.params.id;
+		const reels = await Reel.findAll({ where: { userId: id }, include: Film });
+
+		res.render('reels', { reels, title: 'Film Reels' });
 	})
 );
 
