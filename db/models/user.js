@@ -28,7 +28,26 @@ module.exports = (sequelize, DataTypes) => {
 	);
 	User.associate = function (models) {
 		User.belongsTo(models.Genre, { foreignKey: 'genreId' });
-		User.hasMany(models.Reel, { foreignKey: 'userId' });
+		User.belongsToMany(models.Film, {
+			foreignKey: 'userId',
+			otherKey: 'filmId',
+			through: 'Join',
+		});
+		User.belongsToMany(models.Film, {
+			foreignKey: 'userId',
+			otherKey: 'thumbsUp',
+			through: 'Join',
+		});
+		User.belongsToMany(models.Reel, {
+			foreignKey: 'userId',
+			otherKey: 'reelId',
+			through: 'FilmReels',
+		});
+		User.belongsToMany(models.Film, {
+			foreignKey: 'userId',
+			otherKey: 'filmId',
+			through: 'FilmReels',
+		});
 	};
 	return User;
 };
