@@ -25,3 +25,20 @@ body, header, nav {
 h1 {
   font-size: 2rem;
 }
+
+.navbar {
+  display: flex;
+  background-color: white;
+  height: auto;
+  justify-content: space-between;
+}
+
+.btn {
+  line-height: 50px;
+}
+
+.controls {
+  display: flex;
+  box-sizing: border-box;
+  height: auto;
+}
