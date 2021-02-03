@@ -14,7 +14,16 @@ module.exports = (sequelize, DataTypes) => {
 		{}
 	);
 	Reel.associate = function (models) {
-		Reel.belongsTo(models.User, { foreignKey: 'userId' });
+		Reel.belongsToMany(models.User, {
+			foreignKey: 'reelId',
+			otherKey: 'userId',
+			through: 'FilmReels',
+		});
+		Reel.belongsToMany(models.Film, {
+			foreignKey: 'reelId',
+			otherKey: 'filmId',
+			through: 'FilmReels',
+		});
 	};
 	return Reel;
 };
