@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
 		{}
 	);
 	FilmReel.associate = function (models) {
-		// joins table ( no associations )
+		// joins table (no associations needed)
 	};
 	return FilmReel;
 };

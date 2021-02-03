@@ -35,13 +35,8 @@ module.exports = (sequelize, DataTypes) => {
 		Film.belongsTo(models.Genre, { foreignKey: 'genreId' });
 		Film.belongsToMany(models.User, {
 			foreignKey: 'filmId',
-			otherKey: 'userId',
-			through: 'Join',
-		});
-		Film.belongsToMany(models.User, {
-			foreignKey: 'filmId',
 			otherKey: 'thumbsUp',
-			through: 'Join',
+			through: 'Reviews',
 		});
 		Film.belongsToMany(models.Reel, {
 			foreignKey: 'filmId',
@@ -52,6 +47,11 @@ module.exports = (sequelize, DataTypes) => {
 			foreignKey: 'filmId',
 			otherKey: 'userId',
 			through: 'FilmReels',
+		});
+		Film.belongsToMany(models.User, {
+			foreignKey: 'filmId',
+			otherKey: 'userId',
+			through: 'Reviews',
 		});
 	};
 	return Film;

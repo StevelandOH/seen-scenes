@@ -17,8 +17,7 @@ module.exports = (sequelize, DataTypes) => {
 		{}
 	);
 	Review.associate = function (models) {
-		Review.belongsTo(models.User, { foreignKey: 'userId' });
-		Review.belongsTo(models.Film, { foreignKey: 'filmId' });
+    // joins table (no associations needed)
 	};
 	return Review;
 };
