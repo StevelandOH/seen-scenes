@@ -1,19 +1,21 @@
 .filmContainer {
 	display: flex;
 	justify-content: center;
+	/* justify-content: space-around; */
 	flex-wrap: wrap;
-	margin: 10px auto;
+	margin: 30px auto;
 	position: relative;
 	text-align: center;
 }
 
-.filmBlock {
+.reelTitle {
 	display: flex;
 	flex-direction: column;
 	align-content: center;
 	text-align: center;
-	margin: 10px;
+	margin: 50px;
 }
+
 .filmPoster {
 	height: 15rem;
 }
