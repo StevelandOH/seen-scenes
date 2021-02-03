@@ -3,7 +3,6 @@ module.exports = (sequelize, DataTypes) => {
 	const FilmReel = sequelize.define(
 		'FilmReel',
 		{
-			userId: DataTypes.INTEGER,
 			filmId: DataTypes.INTEGER,
 			reelId: DataTypes.INTEGER,
 		},
