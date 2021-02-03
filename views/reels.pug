@@ -2,18 +2,17 @@ extends layout
 
 append head
   link(rel="stylesheet" href="/stylesheets/index.css")
-  link(rel="stylesheet" href="/stylesheets/films.css")
+  link(rel="stylesheet" href="/stylesheets/reels.css")
   script(src="/javascripts/index.js" type="module" defer)
 
 
 block content 
   body
-    h1= `${user.username}'s ${title}`
     div.reelContainer
       each reel in reels 
         div.reelTitle
           h2= reel.name
-            div
+            div.filmContainer
               each film in reel.Films 
                 a(href=`/films/${film.id}`)
                   img.filmPoster(src= film.posterPath)
