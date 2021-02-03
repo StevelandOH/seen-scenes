@@ -2,17 +2,20 @@ extends layout
 
 append head
   link(rel="stylesheet" href="/stylesheets/films.css")
+  link(rel="stylesheet" href="/stylesheets/index.css")
+  script(src="/javascripts/index.js" type="module" defer)
 
 block content
-  div(class="username")
-    div= user.username
-  div(class="email")
-    div= user.email
-  div(class="biography")
-    div= user.biography
-  div(class="favorite-genre")
-    div= user.Genre.name
-  div(class="filmContainer")
-    div
-      each film in watchedReel.Films
-          img.filmPoster(src=film.posterPath)
+  body
+    div(class="username")
+      div= user.username
+    div(class="email")
+      div= user.email
+    div(class="biography")
+      div= user.biography
+    div(class="favorite-genre")
+      div= user.Genre.name
+    div(class="filmContainer")
+      div
+        each film in watchedReel.Films
+            img.filmPoster(src=film.posterPath)
