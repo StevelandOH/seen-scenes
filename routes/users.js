@@ -168,8 +168,9 @@ router.get(
 	asyncHandler(async (req, res) => {
 		const id = req.params.id;
 		const reels = await Reel.findAll({ where: { userId: id }, include: Film });
-
-		res.render('reels', { reels, title: 'Film Reels' });
+		const user = await User.findOne({ where: { id: id } });
+		reels[0].Films.forEach((film) => console.log(film.title));
+		res.render('reels', { reels, user, title: 'Reels' });
 	})
 );
 
