@@ -15,7 +15,7 @@ router.get('/', asyncHandler(async (req, res) => {
 
 router.get('/:id', csrfProtection, asyncHandler(async (req, res) => {
   const id = req.params.id
-  const film = await db.Film.findByPk(id, { include: db.Genre })
+  const film = await db.Film.findByPk(id, { include: [db.Genre, db.Review ]})
 
   res.render('films-id', { film })
 }));

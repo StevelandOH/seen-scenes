@@ -16,4 +16,10 @@ block content
     br
     div= `Genre: ${film.Genre.name}`
     div
+  h1 Reviews
+  each review in film.Review
+    if review.review
+      div= review.review
+
+
 
