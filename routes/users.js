@@ -169,7 +169,17 @@ router.get(
     // const films = await Film.findAll({where:{id:FilmReel.filmId}});
 
     res.render('dashboard', { title: 'Dashboard', user, watchedReel }); //maybe add <username>'s Dashboard films <---
-  })
+  }));
+
+router.get(
+	'/:id/reels',
+	asyncHandler(async (req, res) => {
+		const id = req.params.id;
+		const reels = await Reel.findAll({ where: { userId: id }, include: Film });
+		const user = await User.findOne({ where: { id: id } });
+		reels[0].Films.forEach((film) => console.log(film.title));
+		res.render('reels', { reels, user, title: 'Reels' });
+	})
 );
 
 // router.get('/:id(\\d+)/reels', asyncHandler( async( req, res, next ) => {
