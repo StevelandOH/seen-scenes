@@ -17,9 +17,17 @@ block content
     div= `Genre: ${film.Genre.name}`
     div
   h1 Reviews
-  each review in film.Review
+  div
+  form.review-form(action=`/films/${film.id}/reviews/new` method='POST')
+    input(type='hidden' name='_csrf' value=token)
+    textarea(placeholder= 'Leave a review')
+    button(type='submit') Submit
+
+
+  each review in reviews
     if review.review
       div= review.review
+       div= `- ${review.User.username}`
 
 
 

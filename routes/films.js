@@ -15,15 +15,14 @@ router.get('/', asyncHandler(async (req, res) => {
 
 router.get('/:id', csrfProtection, asyncHandler(async (req, res) => {
   const id = req.params.id
-  const film = await db.Film.findByPk(id, { include: [db.Genre, db.Review ]})
+  const film = await db.Film.findByPk(id, { include: db.Genre })
+  const reviews = await db.Review.findAll( {include: db.User, where: {filmId: id}})
 
-  res.render('films-id', { film })
+  res.render('films-id', { film, reviews, token: req.csrfToken() })
 }));
 
 router.post('/:id/review/new', csrfProtection, asyncHandler(async (req, res) => {
 
-
-  res.render('films-id', { })
 }))
 
 

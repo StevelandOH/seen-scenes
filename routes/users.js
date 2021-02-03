@@ -84,7 +84,7 @@ router.post(
 				userId: user.id,
 			});
 			loginUser(req, res, user);
-			req.session.save(() => res.redirect('/users/login'));
+			req.session.save(() => res.redirect(`/users/${user.id}`));
 		} else {
 			const errors = validatorErrors.array().map((error) => error.msg);
 			res.render('register', {
