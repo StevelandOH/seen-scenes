@@ -147,9 +147,12 @@ router.post('/logout', (req, res) => {
    res.redirect("/users/login")
 })
 
-// router.get('/:id(\\d+)', asyncHandler( async( req, res, next ) => {
-
-// }));
+router.get('/:id(\\d+)', asyncHandler( async( req, res, next ) => {
+   const id = req.params.id;
+   const user = await User.findByPk(id, { include: Genre });
+   console.log(user)
+   res.render("dashboard", {title:"Dashboard", user})  //maybe add <username>'s Dashboard
+}));
 
 // router.get('/:id(\\d+)/reels', asyncHandler( async( req, res, next ) => {
 
