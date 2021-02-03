@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const asyncHandler = require('express-async-handler');
 const csrf = require('csurf');
-const { Genre, User, Reel, Film } = require('../db/models');
+const { Genre, User, Reel, Film, FilmReel } = require('../db/models');
 const csrfProtection = csrf({ cookie: true });
 const { check, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
@@ -154,14 +154,22 @@ router.post('/logout', (req, res) => {
 });
 
 router.get(
-	'/:id(\\d+)',
-	asyncHandler(async (req, res, next) => {
-		const id = req.params.id;
-		const user = await User.findByPk(id, { include: Genre });
-		console.log(user);
-		res.render('dashboard', { title: 'Dashboard', user }); //maybe add <username>'s Dashboard
-	})
-);
+  '/:id(\\d+)',
+  asyncHandler(async (req, res) => {
+    const id = req.params.id;
+    const user = await User.findByPk(id, { include: Genre });
+    const watchedReel = await Reel.findOne({
+      where: {
+        userId: user.id,
+        name:"Watched"
+      },
+      include: Film
+    });
+    console.log(watchedReel)
+    // const films = await Film.findAll({where:{id:FilmReel.filmId}});
+
+    res.render('dashboard', { title: 'Dashboard', user, watchedReel }); //maybe add <username>'s Dashboard films <---
+  }));
 
 router.get(
 	'/:id/reels',
