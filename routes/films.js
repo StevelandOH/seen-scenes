@@ -2,6 +2,7 @@ const express = require('express')
 const csrf = require('csurf');
 const asyncHandler = require('express-async-handler');
 const db = require('../db/models')
+const { Review } = require('../db/models')
 
 const router = express.Router()
 const csrfProtection = csrf({ cookie: true });
@@ -21,11 +22,18 @@ router.get('/:id', csrfProtection, asyncHandler(async (req, res) => {
   res.render('films-id', { film, reviews, token: req.csrfToken() })
 }));
 
-router.post('/:id/review/new', csrfProtection, asyncHandler(async (req, res) => {
+router.post('/:id/review/new', asyncHandler(async (req, res) => {
 
-  console.log(req.body)
+  const { review, userId, filmId } = req.body
 
-  // const review = await Review.create({})
+  console.log(review, userId, filmId)
+
+  const reviewed = await Review.create({
+    review,
+    userId,
+    filmId
+  })
+  res.json()
 }))
 
 

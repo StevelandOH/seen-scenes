@@ -14,22 +14,28 @@
 
     const body = { review, filmId, userId }
 
-    console.log(body)
-
     try {
       const res = await fetch(`/films/${filmId}/review/new`, {
-        method: 'POST',
-        body: JSON.stringify({body}),
+        method: "POST",
+        body: JSON.stringify(body),
         headers: {
           "Content-Type": "application/json"
-        }
-
+        },
       })
 
-      console.log(res.ok)
+      const div = document.createElement('div')
+      const div2 = document.createElement('div')
+      div.innerHTML = review
+      div2.innerHTML = '-test'
+
+      div.appendChild(div2)
+
+
+      reviewSection.insertBefore(div, reviewSection.firstChild)
+      console.log(reviewSection)
 
       if (!res.ok) {
-        // throw res
+        throw res
       }
 
     } catch (err) {
