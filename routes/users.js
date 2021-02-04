@@ -132,7 +132,7 @@ router.post(
                 );
                 if (passwordMatch) {
                     loginUser(req, res, user);
-                    req.session.save(() => res.redirect('/'));
+                    req.session.save(() => res.redirect(`/users/${user.id}`));
                 }
             }
             errors.push('Login Failed');
