@@ -2,18 +2,34 @@ doctype html
 html
   head
       block head
-        title="Express Starter App"
+        title="Seen Scenes"
         link(rel='stylesheet' href='/stylesheets/reset.css')
+        script(src="/javascripts/navbar.js" type="module")
+        link(rel="stylesheet" href="/stylesheets/index.css")
   body
-    nav
-      a(href="/") Homepage
+    nav(class="navbar")
+      div(class="home-btn btn" id="home-btn" onclick="location.href='/'") Homepage
+        //- a(href="/") Homepage
       if locals.authenticated
-        span Welcome, #{user.username}
-        form(action="/users/logout" method="post")
-          button(type="submit") Logout
-        a(href=`/users/${user.id}`) Dashboard
+        //- span Welcome, #{user.username}
+        div(class="controls")
+
+          div(class="my-reels-btn btn" id="my-reels-btn" onclick=`location.href='/users/${user.id}/reels'`) My Reels
+
+          div(class="dashboard-btn btn" id="dashboard-btn" onclick=`location.href='/users/${user.id}'`) Dashboard
+
+          form(action="/users/logout" method="post")
+            div(class="logout-btn btn" id="logout-btn" onClick="javascript:this.parentNode.submit()") Logout
+
+        //- form(action="/users/logout" method="post")
+        //-   button(type="submit") Logout
+        //- a(href=`/users/${user.id}`) Dashboard
+
       else
-        span
-          a(href="/users/login") Login
-          a(href="/users/register") Register
+        div(class="controls")
+
+          div(class="my-reels-btn btn" id="my-reels-btn" onclick=`location.href='/users/login'`) Login
+
+          div(class="dashboard-btn btn" id="dashboard-btn" onclick=`location.href='/users/register'`) Register
+
     block content
