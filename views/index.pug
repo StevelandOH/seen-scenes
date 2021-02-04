@@ -1,4 +1,5 @@
 extends layout
+include utils.pug 
 
 append head
   link(rel="stylesheet" href="/stylesheets/index.css")
@@ -6,5 +7,36 @@ append head
 
 block content
   body
-    h1= title
-    p Welcome to your Project Skeleton
+  div 
+    div.loginRegisterContainer 
+      div.loginRegister Register
+        if errors
+            +validationErrorSummary(errors)
+        form(action="/" method="post")
+            input(type="hidden" name="_csrf" value=token)
+            +field("User Name", "username")
+            +field("Email", "email", "email")
+            +field("Password", "password", "password" )
+            +field("Confirm Password", "confirmPassword", "password")
+            div
+              label Biography
+              textarea(name="biography" cols="30" rows="10" placeholder="Tell us a little about yourself... or not, your call..")
+            div
+              label Favorite Genre
+              select(name="genreId")
+                  each genre in genres
+                    option(value=genre.id)=genre.name
+            div
+              button(type="submit") Register
+      div.loginRegister Login
+        if errors
+         +validationErrorSummary(errors)
+        form(action="/login" method="post")
+          input(type="hidden" name="_csrf" value=token)
+          +field("Email", "email", "email")
+          +field("Password", "password", "password" )
+          div
+              button(type="submit") Login
+        
+
+

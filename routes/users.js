@@ -150,26 +150,27 @@ router.post(
 
 router.post('/logout', (req, res) => {
 	logoutUser(req, res);
-	res.redirect('/users/login');
+	res.redirect('/');
 });
 
 router.get(
-  '/:id(\\d+)',
-  asyncHandler(async (req, res) => {
-    const id = req.params.id;
-    const user = await User.findByPk(id, { include: Genre });
-    const watchedReel = await Reel.findOne({
-      where: {
-        userId: user.id,
-        name:"Watched"
-      },
-      include: Film
-    });
-    console.log(watchedReel)
-    // const films = await Film.findAll({where:{id:FilmReel.filmId}});
+	'/:id(\\d+)',
+	asyncHandler(async (req, res) => {
+		const id = req.params.id;
+		const user = await User.findByPk(id, { include: Genre });
+		const watchedReel = await Reel.findOne({
+			where: {
+				userId: user.id,
+				name: 'Watched',
+			},
+			include: Film,
+		});
+		console.log(watchedReel);
+		// const films = await Film.findAll({where:{id:FilmReel.filmId}});
 
-    res.render('dashboard', { title: 'Dashboard', user, watchedReel }); //maybe add <username>'s Dashboard films <---
-  }));
+		res.render('dashboard', { title: 'Dashboard', user, watchedReel }); //maybe add <username>'s Dashboard films <---
+	})
+);
 
 router.get(
 	'/:id/reels',
