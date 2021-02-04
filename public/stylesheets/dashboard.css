@@ -6,6 +6,7 @@
   margin: 10px auto;
   position: relative;
   text-align:center;
+  margin-top: 80px;
 }
 
 .filmBlock {
@@ -14,12 +15,41 @@
     align-content: center;
     text-align: center;
     margin: 10px;
+
 }
 .filmPoster {
   height: 15rem;
+}
+.filmPoster:hover {
+  opacity: 0.8;
+  cursor: pointer;
+  -webkit-transform: scale(1.05, 1.05);
+  transform: scale(1.05, 1.05);
+
 }
 
 body {
   background-color: #4f4d4d;
   background-image: url('./img/speckle.svg')
+}
+
+.user-info {
+  display: flex;
+  justify-content: center;
+}
+
+.profile-pic {
+  background-color: white;
+  height: 300px;
+  width: 300px;
+  position: relative;
+  margin-right: 30px;
+  margin-top: 30px;
+}
+
+.info {
+  background-color: white;
+  margin-right: 30px;
+  margin-top: 30px;
+  width: 500px;
 }

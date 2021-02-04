@@ -1,21 +1,27 @@
 extends layout
 
 append head
-  link(rel="stylesheet" href="/stylesheets/films.css")
+  link(rel="stylesheet" href="/stylesheets/dashboard.css")
   link(rel="stylesheet" href="/stylesheets/index.css")
   script(src="/javascripts/index.js" type="module" defer)
 
 block content
   body
-    div(class="username")
-      div= user.username
-    div(class="email")
-      div= user.email
-    div(class="biography")
-      div= user.biography
-    div(class="favorite-genre")
-      div= user.Genre.name
+
+    div(class="user-info")
+      div(class="profile-pic")
+
+      div(class="info")
+        div(class="username")
+          div= user.username
+        div(class="email")
+          div= user.email
+        div(class="biography")
+          div= user.biography
+        div(class="favorite-genre")
+          div= user.Genre.name
     div(class="filmContainer")
       div
         each film in watchedReel.Films
+          a(href=`/films/${film.id}`)
             img.filmPoster(src=film.posterPath)
