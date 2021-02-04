@@ -6,7 +6,7 @@ const { Genre, User, Reel, Film } = require('../db/models');
 const csrfProtection = csrf({ cookie: true });
 const { check, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
-const { loginUser, logoutUser, requireAuth } = require('../auth');
+const { loginUser } = require('../auth');
 
 /* GET home page. */
 router.get(

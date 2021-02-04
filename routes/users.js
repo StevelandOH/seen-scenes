@@ -7,7 +7,6 @@ const csrfProtection = csrf({ cookie: true });
 const { check, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const { loginUser, logoutUser, requireAuth } = require('../auth');
-const { validator } = require('sequelize/types/lib/utils/validator-extras');
 
 router.get(
     '/register',
