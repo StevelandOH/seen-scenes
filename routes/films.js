@@ -19,6 +19,8 @@ router.get('/:id', csrfProtection, asyncHandler(async (req, res) => {
   const film = await db.Film.findByPk(id, { include: db.Genre })
   const reviews = await db.Review.findAll( {include: db.User, order: [['updatedAt', 'DESC']], where: {filmId: id}},)
 
+  console.log(res.locals.authenticated)
+
   res.render('films-id', { film, reviews, token: req.csrfToken() })
 }));
 
