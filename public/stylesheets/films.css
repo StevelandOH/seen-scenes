@@ -12,8 +12,15 @@
 	flex-direction: column;
 	align-content: center;
 	text-align: center;
-	margin: 10px;
 }
+
 .filmPoster {
-	height: 15rem;
+  height: 15rem;
+}
+.filmPoster:hover {
+  opacity: 0.8;
+  cursor: pointer;
+  -webkit-transform: scale(1.05, 1.05);
+  transform: scale(1.05, 1.05);
+
 }
