@@ -28,13 +28,21 @@ h1 {
 
 .navbar {
   display: flex;
-  background-color: white;
+  background-color: rgba(28, 65, 92, .3);
   height: auto;
   justify-content: space-between;
 }
 
 .btn {
   line-height: 50px;
+  cursor: pointer;
+  font-size: large;
+  color: lightgray;
+  margin: 0px 20px;
+}
+
+.btn:hover {
+  color: lightblue;
 }
 
 .controls {

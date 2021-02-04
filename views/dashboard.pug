@@ -15,4 +15,5 @@ block content
   div(class="filmContainer")
     div
       each film in watchedReel.Films
+        a(href=`/films/${film.id}`)
           img.filmPoster(src=film.posterPath)

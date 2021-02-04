@@ -4,27 +4,31 @@ html
       block head
         title="Seen Scenes"
         link(rel='stylesheet' href='/stylesheets/reset.css')
-        script(src="/javascripts/navbar.js" type="module" defer)
+        script(src="/javascripts/navbar.js" type="module")
   body
     nav(class="navbar")
-      div(class="home-btn btn" id="home-btn") Homepage
+      div(class="home-btn btn" id="home-btn" onclick="location.href='/'") Homepage
         //- a(href="/") Homepage
       if locals.authenticated
         //- span Welcome, #{user.username}
         div(class="controls")
 
-          div(class="my-reels-btn btn" id="my-reels-btn") My Reels
+          div(class="my-reels-btn btn" id="my-reels-btn" onclick=`location.href='/users/${user.id}/reels'`) My Reels
 
-          div(class="dashboard-btn btn" id="dashboard-btn") Dashboard
+          div(class="dashboard-btn btn" id="dashboard-btn" onclick=`location.href='/users/${user.id}'`) Dashboard
 
-          div(class="logout-btn btn" id="logout-btn") Logout
+          form(action="/users/logout" method="post")
+            div(class="logout-btn btn" id="logout-btn" onClick="javascript:this.parentNode.submit()") Logout
 
         //- form(action="/users/logout" method="post")
         //-   button(type="submit") Logout
         //- a(href=`/users/${user.id}`) Dashboard
 
       else
-        span
-          a(href="/users/login") Login
-          a(href="/users/register") Register
+        div(class="controls")
+
+          div(class="my-reels-btn btn" id="my-reels-btn" onclick=`location.href='/users/login'`) Login
+
+          div(class="dashboard-btn btn" id="dashboard-btn" onclick=`location.href='/users/register'`) Register
+
     block content
