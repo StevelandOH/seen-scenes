@@ -25,3 +25,31 @@ body, header, nav {
 h1 {
   font-size: 2rem;
 }
+
+.navbar {
+  display: flex;
+  background-color: rgba(28, 28, 28, .8);
+  height: auto;
+  justify-content: space-between;
+}
+
+.btn {
+  line-height: 50px;
+  cursor: pointer;
+  font-size: large;
+  color: lightgray;
+  margin: 0px 20px;
+}
+
+.btn:hover {
+  box-sizing: border-box;
+  color: lightblue;
+  /* border-bottom: solid lightblue; */
+  box-shadow: 0 4px 1px -2px lightblue;
+}
+
+.controls {
+  display: flex;
+  box-sizing: border-box;
+  height: auto;
+}
