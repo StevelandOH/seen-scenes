@@ -17,12 +17,20 @@ block content
     br
     div= `Genre: ${film.Genre.name}`
     div
-  h1 Reviews
   div
-  form.review-form(action=`/films/${film.id}/reviews/new` method='POST')
-    input(type='hidden' name='_csrf' value=token)
-    textarea(name='review' placeholder= 'Leave a review')
-    button.submit-review-button(type='submit' data-filmid= film.id data-userid= 1) Submit
+  if authenticated
+    if !userReview
+      form.review-form(action=`/films/${film.id}/reviews/new` method='POST')
+        input(type='hidden' name='_csrf' value=token)
+        textarea(name='review' placeholder= 'Leave a review')
+        button.submit-review-button(type='submit' data-filmid= film.id data-userid= user) Submit
+    else if userReview
+      form.review-form(action=`/films/${film.id}/reviews/edit` method='POST')
+        input(type='hidden' name='_csrf' value=token)
+        textarea(name='edited-review' value= 'test')
+        button.edit-review-button(type='submit' data-filmid= film.id data-userid= user.id) Edit Review
+        button.delete-review-button(type='submit' data-filmid= film.id data-userid= user.id) Delete Review
+
 
 
   div.reviewContainer
