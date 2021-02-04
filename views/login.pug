@@ -3,19 +3,23 @@ include utils.pug
 
 append head
   link(rel="stylesheet" href="/stylesheets/index.css")
+  link(rel="stylesheet" href="/stylesheets/login.css")
   script(src="/javascripts/index.js" type="module" defer)
 
 
 block content
    body
-      if errors
-         +validationErrorSummary(errors)
-      form(action="/users/login" method="post")
-         input(type="hidden" name="_csrf" value=token)
-         +field("Email", "email", "email")
-         +field("Password", "password", "password" )
-         div
-            button(type="submit") Login
-            a(href="/") Cancel
-         div
-            p: a(href="/users/register") Don't have an account?
+      div.loginContainer
+         if errors
+            +validationErrorSummary(errors)
+         div.login
+            form(action="/users/login" method="post")
+               input(type="hidden" name="_csrf" value=token)
+               div.fields
+                  +field(null, "email", "email")
+                  +field(null, "password", "password" )
+               div
+                  button.login-button(type="submit") Login
+                  a(href="/") Cancel
+               div
+                  p: a(href="/users/register") Don't have an account?
