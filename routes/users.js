@@ -83,6 +83,10 @@ router.post(
 				name: 'Watched',
 				userId: user.id,
 			});
+			await Reel.create({
+				name: 'Liked Films',
+				userId: user.id,
+			});
 			loginUser(req, res, user);
 			req.session.save(() => res.redirect(`/users/${user.id}`));
 		} else {

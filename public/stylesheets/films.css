@@ -24,3 +24,25 @@
   transform: scale(1.05, 1.05);
 
 }
+
+.thumbs-up-btn {
+  height: 30px;
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid white;
+  /* background-image: url("./img/thumbs-up-icon.png"); */
+  /* background-size: cover; */
+}
+
+.thumbs-up-btn:hover {
+  height: 30px;
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(84, 84, 84);
+  border-color: lightgray;
+  color: white;
+}

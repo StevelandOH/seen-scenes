@@ -4,6 +4,7 @@ append head
   link(rel="stylesheet" href="/stylesheets/index.css")
   link(rel="stylesheet" href="/stylesheets/films.css")
   script(src="/javascripts/films.js" type="module" defer)
+  script(src="/javascripts/thumbs-up.js" type="module" defer)
 
 block content
   div
@@ -16,7 +17,12 @@ block content
     div= `Release Date: ${film.releaseDate}`
     br
     div= `Genre: ${film.Genre.name}`
-    div
+    if thumbsUp === null
+      div(class="thumbs-up-btn" id ="thumbs-up-btn")
+        div(class="text" id="liked" data-filmid= film.id data-userid= 1) Like
+    else
+      div(class="thumbs-up-btn" id ="thumbs-up-btn")
+        div(class="text" id="liked" data-filmid= film.id data-userid= 1) Liked
   h1 Reviews
   div
   form.review-form(action=`/films/${film.id}/reviews/new` method='POST')
@@ -30,6 +36,3 @@ block content
       if review.review
         div= review.review
          div= `- ${review.User.username}`
-
-
-
