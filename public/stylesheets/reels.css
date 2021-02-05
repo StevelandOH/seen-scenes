@@ -1,21 +1,32 @@
 .filmContainer {
-	display: flex;
-	justify-content: center;
-	/* justify-content: space-around; */
-	flex-wrap: wrap;
-	margin: 30px auto;
-	position: relative;
-	text-align: center;
+    display: flex;
+    justify-content: center;
+    /* justify-content: space-around; */
+    flex-wrap: wrap;
+    margin: 30px auto;
+    position: relative;
+    text-align: center;
 }
 
 .reelTitle {
-	display: flex;
-	flex-direction: column;
-	align-content: center;
-	text-align: center;
-	margin: 50px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+    margin: 50px;
 }
 
 .filmPoster {
-	height: 15rem;
+    height: 15rem;
+}
+
+.newReel {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+    margin: 50px;
+}
+.newReelButton {
+    margin: 10px;
 }
