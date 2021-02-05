@@ -20,6 +20,15 @@ router.get('/:id', csrfProtection, asyncHandler(async (req, res) => {
   const reviews = await db.Review.findAll( {include: db.User, order: [['updatedAt', 'DESC']], where: {filmId: id}},)
   const thumbsUp = await Like.findOne({where: {userId: req.session.auth.userId, filmId:id}});
   res.render('films-id', { film, reviews, thumbsUp, token: req.csrfToken() })
+  const authenticated = res.locals.authenticated
+
+  if (authenticated) {
+    const user = await db.User.findByPk(req.session.auth.userId)
+    const userReview = await db.Review.findOne({where: {userId: req.session.auth.userId, filmId: id }})
+    res.render('films-id', { film, reviews, user, userReview, authenticated, token: req.csrfToken() })
+  } else {
+    res.render('films-id', {film, reviews})
+  }
 }));
 
 router.post('/:id/review/new', asyncHandler(async (req, res) => {
@@ -28,7 +37,7 @@ router.post('/:id/review/new', asyncHandler(async (req, res) => {
 
   console.log(review, userId, filmId)
 
-  const reviewed = await Review.create({
+  const reviewed = await db.Review.create({
     review,
     userId,
     filmId
@@ -36,31 +45,44 @@ router.post('/:id/review/new', asyncHandler(async (req, res) => {
   res.json();
 }))
 
+
+
+router.put('/:id/review/edit', asyncHandler(async (req, res) => {
+  const { review, userId, filmId } = req.body
+  const reviewed = await db.Review.findOne({where: {userId: userId, filmId: filmId }})
+
+  reviewed.review = review
+
+  reviewed.save()
+
+  res.json()
+
+}))
+
 router.post('/:id/like', asyncHandler(async (req, res) => {
-  const userId = req.session.auth.userId;
-  const id = req.params.id;
-  console.log(req.body)
-  console.log(userId, id);
-  const newLike = await Like.create({
-    status: true, userId, filmId: id
+
+  const {status, userId, filmId} = req.body;
+
+  await Like.create({
+    status,
+    userId,
+    filmId,
   })
 
-  res.json(); //should it just be res.json
+  res.json();
 
 }))
 
 router.delete('/:id/like', asyncHandler(async (req, res) => {
-  const userId = req.session.auth.userId;
-  const id = req.params.id;
+
+  const { userId, filmId } = req.body;
 
   await Like.destroy({
     where: {
-      userId: userId,
-      filmId: id
+      userId,
+      filmId,
     }
   })
-
-  const body = { status: false };
 
   res.json();
 

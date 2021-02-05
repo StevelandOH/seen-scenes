@@ -17,18 +17,29 @@ block content
     div= `Release Date: ${film.releaseDate}`
     br
     div= `Genre: ${film.Genre.name}`
-    if thumbsUp === null
-      div(class="thumbs-up-btn" id ="thumbs-up-btn")
-        div(class="text" id="liked" data-filmid= film.id data-userid= 1) Like
-    else
-      div(class="thumbs-up-btn" id ="thumbs-up-btn")
-        div(class="text" id="liked" data-filmid= film.id data-userid= 1) Liked
+
   h1 Reviews
+    div
   div
-  form.review-form(action=`/films/${film.id}/reviews/new` method='POST')
-    input(type='hidden' name='_csrf' value=token)
-    textarea(name='review' placeholder= 'Leave a review')
-    button.submit-review-button(type='submit' data-filmid= film.id data-userid= 1) Submit
+  if authenticated
+    if !userReview
+      form.review-form(action=`/films/${film.id}/reviews/new` method='POST')
+        input(type='hidden' name='_csrf' value=token)
+        textarea(name='review' placeholder= 'Leave a review')
+        button.submit-review-button(type='submit' data-filmid= film.id data-userid= user) Submit
+    else if userReview
+      form.review-form(action=`/films/${film.id}/reviews/edit` method='POST')
+        input(type='hidden' name='_csrf' value=token)
+        textarea(name='edited-review' value= 'test')
+        button.edit-review-button(type='submit' data-filmid= film.id data-userid= user.id) Edit Review
+        button.delete-review-button(type='submit' data-filmid= film.id data-userid= user.id) Delete Review
+    if thumbsUp === null
+      div
+        div(class="text thumbs-up-btn" id="liked" data-filmid= film.id data-userid= user.id) Like
+    else
+      div
+        div(class="text thumbsed-up-btn" id="liked" data-filmid= film.id data-userid= user.id) Liked
+
 
 
   div.reviewContainer

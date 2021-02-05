@@ -17,6 +17,7 @@
 .filmPoster {
   height: 15rem;
 }
+
 .filmPoster:hover {
   opacity: 0.8;
   cursor: pointer;
@@ -32,11 +33,9 @@
   justify-content: center;
   align-items: center;
   border: 2px solid white;
-  /* background-image: url("./img/thumbs-up-icon.png"); */
-  /* background-size: cover; */
 }
 
-.thumbs-up-btn:hover {
+.thumbsed-up-btn {
   height: 30px;
   width: 60px;
   display: flex;
@@ -45,4 +44,17 @@
   background-color: rgb(84, 84, 84);
   border-color: lightgray;
   color: white;
+}
+
+
+
+.text {
+  width: 60px;
+  height: 30px;
+  text-align: center;
+  padding-top: 5px;
+}
+
+.text:hover {
+  cursor: pointer;
 }
