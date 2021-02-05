@@ -1,28 +1,26 @@
 h1 {
-	color: white;
+    color: white;
 }
 
 body {
-	background-color: #4f4d4d;
-	background-image: url('./img/Endless-Constellation\ \(1\).svg');
-	color: white;
+    background-color: #4f4d4d;
+    background-image: url('./img/Endless-Constellation\ \(1\).svg');
+    color: white;
 }
 
 .loginRegisterContainer {
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
-	margin: 10px auto;
-	position: relative;
-	text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 10px auto;
+    position: relative;
+    text-align: center;
 }
 
 .loginRegister {
-	margin: 100px;
-	display: flex;
-	flex-direction: column;
-	align-content: center;
-	text-align: center;
+    margin: 100px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
 }
-
-
