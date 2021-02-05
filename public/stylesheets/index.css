@@ -7,7 +7,7 @@ body {
     background-color: #4f4d4d;
     background-image: url('./img/Endless-Constellation\ \(1\).svg');
     color: white;
-    overflow: scroll;
+    /* overflow: scroll; */
 }
 
 .loginRegisterContainer {
@@ -22,7 +22,7 @@ body {
     margin: 0 auto;
     height: 1100px;
     width: 100vw;
-    overflow: scroll;
+    /* overflow: scroll; */
     font-family: 'Lato', 'sans-serif';
     font-weight: 700;
     display: flex;
@@ -36,11 +36,11 @@ body {
     margin: 0 auto;
     height: 100vh;
     width: 100vw;
-    overflow: scroll;
+    /* overflow: scroll; */
     font-family: 'Lato', 'sans-serif';
     font-weight: 700;
     display: flex;
-    margin-top: 50px;
+    margin-top: 250px;
     justify-content: center;
     color: #555;
 }
@@ -129,6 +129,6 @@ body {
     font-family: 'Lucida Grande', Helvetica, Arial, sans-serif;
     color: white;
     opacity: 0.4;
-    margin-top: 250px;
+    margin-top: 425px;
     margin-right: 10px;
 }
