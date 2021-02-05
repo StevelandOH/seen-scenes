@@ -21,7 +21,7 @@ router.get('/:id', csrfProtection, asyncHandler(async (req, res) => {
 
   if (authenticated) {
     const user = await db.User.findByPk(req.session.auth.userId)
-    const userReview = await db.Review.findOne({where: {userId: req.session.auth.userId, filmId: id }})
+    const userReview = await db.Review.findOne({where: {userId: user.id, filmId: id }})
     res.render('films-id', { film, reviews, user, userReview, authenticated, token: req.csrfToken() })
   } else {
     res.render('films-id', {film, reviews})
@@ -30,9 +30,10 @@ router.get('/:id', csrfProtection, asyncHandler(async (req, res) => {
 
 router.post('/:id/review/new', asyncHandler(async (req, res) => {
 
-  const { review, userId, filmId } = req.body
+  const { review, filmId } = req.body
+  const userId = req.session.auth.userId
 
-  console.log(review, userId, filmId)
+  // console.log(review, userId, filmId)
 
   const reviewed = await db.Review.create({
     review,

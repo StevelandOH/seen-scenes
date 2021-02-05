@@ -70,7 +70,7 @@ router.post(
 			biography,
 			genreId,
 		});
-		const validatorErrors = validationsResult(req);
+		const validatorErrors = validationResult(req);
 		if (validatorErrors.isEmpty()) {
 			const hashedPassword = await bcrypt.hash(password, 10);
 			user.hashedPassword = hashedPassword;

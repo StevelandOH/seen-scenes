@@ -12,11 +12,9 @@
 
     const review = formData.get('review')
     const filmId = submitReviewButton.dataset.filmid
-    const userId = submitReviewButton.dataset.user.id
+    const username = submitReviewButton.dataset.username
 
-    console.log(submitReviewButton.dataset.user)
-
-    const body = { review, filmId, userId }
+    const body = { review, filmId }
 
     try {
       const res = await fetch(`/films/${filmId}/review/new`, {
@@ -26,17 +24,18 @@
           "Content-Type": "application/json"
         },
       })
+      submitReviewButton.setAttribute('disabled','')
+
 
       const div = document.createElement('div')
       const div2 = document.createElement('div')
       div.innerHTML = review
-      div2.innerHTML = '-test'
+      div2.innerHTML = `- ${username}`
 
       div.appendChild(div2)
 
 
       reviewSection.insertBefore(div, reviewSection.firstChild)
-      console.log(reviewSection)
 
       if (!res.ok) {
         throw res
@@ -48,13 +47,14 @@
 
   })
 
-  editReviewButton.addEventListener('submit', async(e) => {
+  editReviewButton.addEventListener('onclick', async(e) => {
     e.preventDefault()
     const formData = new FormData(reviewForm)
 
     const review = formData.get('review')
-    const filmId = submitReviewButton.dataset.filmid
-    const userId = submitReviewButton.dataset.userid
+    const filmId = editReviewButton.dataset.filmid
+    const userId = editReviewButton.dataset.username
+
 
     const body = { review, filmId, userId }
 
@@ -76,7 +76,6 @@
 
 
       reviewSection.insertBefore(div, reviewSection.firstChild)
-      console.log(reviewSection)
 
       if (!res.ok) {
         throw res

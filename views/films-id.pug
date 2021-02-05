@@ -23,7 +23,7 @@ block content
       form.review-form(action=`/films/${film.id}/reviews/new` method='POST')
         input(type='hidden' name='_csrf' value=token)
         textarea(name='review' placeholder= 'Leave a review')
-        button.submit-review-button(type='submit' data-filmid= film.id data-userid= user) Submit
+        button.submit-review-button(type='submit' data-filmid= film.id data-username= user.username) Submit
     else if userReview
       form.review-form(action=`/films/${film.id}/reviews/edit` method='POST')
         input(type='hidden' name='_csrf' value=token)
