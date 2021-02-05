@@ -21,7 +21,7 @@ block content
         div= user.biography
       div(class="favorite-genre")
         div= user.Genre.name
-    div(class="watched") Watched →
+    div(class="watched" onclick=`location.href='/users/${user.id}/reels'`) Watched →
     div(class="filmContainer")
       div
         each film in watchedReel.Films

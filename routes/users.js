@@ -38,8 +38,8 @@ const userValidators = [
         .withMessage('Email is not a valid email')
         .custom(async (value) => {
             const user = await User.findOne({ where: { email: value } });
-            if (!user) {
-                throw new Error('Failed login attempt');
+            if (user) {
+                throw new Error('Failed register attempt');
             }
             return true;
         }),
