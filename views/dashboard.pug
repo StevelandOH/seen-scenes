@@ -8,18 +8,19 @@ append head
 block content
   body
 
-    div(class="user-info")
-      div(class="profile-pic")
+  div(class="content")
 
-      div(class="info")
-        div(class="username")
-          div= user.username
-        div(class="email")
-          div= user.email
-        div(class="biography")
-          div= user.biography
-        div(class="favorite-genre")
-          div= user.Genre.name
+    div(class="username-div")= user.username
+
+    div(class="star")
+
+    div(class="info")
+      div(class="biography-div")
+        p(class="bio-header") A little bit about me ...
+        p(class="biography-info")= user.biography
+        div(class="favorite-genre-div")
+          div=`Favorite Genre:  ${user.Genre.name}`
+    div(class="watched" onclick=`location.href='/users/${user.id}/reels'`) Watched →
     div(class="filmContainer")
       div
         each film in watchedReel.Films
