@@ -30,7 +30,13 @@
 
 body {
   background-color: #4f4d4d;
-  background-image: url('./img/speckle.svg')
+  background-image: url('./img/speckle.svg');
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .user-info {
@@ -38,13 +44,13 @@ body {
   justify-content: center;
 }
 
-.profile-pic {
+.star {
   background-color: white;
   height: 300px;
   width: 300px;
-  position: relative;
-  margin-right: 30px;
-  margin-top: 30px;
+  background-image: url("./img/star.png");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .info {
