@@ -1,29 +1,42 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding: 50px;
+    font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+    color: #00b7ff;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-h1, h2, h3, h4, h5, h6, a, ol, li, ul, div, span,
-body, header, nav {
-  font-size: 1rem;
-  color: inherit;
-  background-color: transparent;
-  margin: 0;
-  padding: 0;
-  outline: 0;
-  font-weight: normal;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+ol,
+li,
+ul,
+div,
+span,
+body,
+header,
+nav {
+    font-size: 1rem;
+    color: inherit;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    font-weight: normal;
 }
 
 h1 {
-  font-size: 2rem;
+    font-size: 2rem;
 }
 
 .navbar {
@@ -32,25 +45,63 @@ h1 {
   height: auto;
   justify-content: space-between;
   margin-bottom: 10px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .btn {
-  line-height: 50px;
-  cursor: pointer;
-  font-size: large;
-  color: lightgray;
-  margin: 0px 20px;
+    line-height: 50px;
+    cursor: pointer;
+    font-size: large;
+    color: lightgray;
+    margin: 0px 20px;
 }
 
 .btn:hover {
-  box-sizing: border-box;
-  color: lightblue;
-  /* border-bottom: solid lightblue; */
-  box-shadow: 0 4px 1px -2px lightblue;
+    box-sizing: border-box;
+    color: rgb(129, 149, 156);
+    /* border-bottom: solid lightblue; */
+    box-shadow: 0 4px 1px -2px lightblue;
 }
 
 .controls {
   display: flex;
   box-sizing: border-box;
   height: auto;
+  margin-right: 5px;
+}
+
+.logout-btn {
+  color: lightblue;
+  line-height: 50px;
+  cursor: pointer;
+  font-size: large;
+  margin: 0px 20px;
+}
+
+.logout-div:hover {
+  background-color: rgba(15, 15, 15, .8);
+}
+
+.box:hover {
+  align-self: flex-end;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  transform-origin: bottom;
+}
+.bounce-6:hover {
+  animation-name: bounce-6;
+  animation-timing-function: ease;
+}
+
+@keyframes bounce-6 {
+  0%   { transform: scale(1,1)      translateY(0); }
+  10%  { transform: scale(1.1,.9)   translateY(0); }
+  30%  { transform: scale(.9,1.1)   translateY(-5px); }
+  50%  { transform: scale(1.05,.95) translateY(0); }
+  57%  { transform: scale(1,1)      translateY(0); }
+  64%  { transform: scale(1,1)      translateY(0); }
+  100% { transform: scale(1,1)      translateY(0); }
 }

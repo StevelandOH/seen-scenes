@@ -15,7 +15,11 @@ router.get(
     asyncHandler(async (req, res) => {
         const genres = await Genre.findAll();
         const users = User.build();
-        res.render('index', { genres, users, token: req.csrfToken() });
+        if (!res.locals.authenticated) {
+          res.render('index', { genres, users, token: req.csrfToken() });
+        } else {
+          res.redirect(`/users/${req.session.auth.userId}`)
+        }
     })
 );
 
@@ -27,17 +31,17 @@ const userValidators = [
         .withMessage('Username cannot be longer than 20 characters'),
     check('email')
         .exists({ checkFalsy: true })
-        .withMessage('Please provide an email')
+        .withMessage('Email not valid')
         .isLength({ max: 100 })
         .withMessage('Email cannot be longer than 100 characters')
         .isEmail()
-        .withMessage('Email is not a valid email')
-        .custom((value) => {
-            return User.findOne({ where: { email: value } }).then((user) => {
-                if (user) {
-                    return Promise.reject('Email already exists');
-                }
-            });
+        .withMessage('Email structure needs to be - email@email.com')
+        .custom(async (value) => {
+            const user = await User.findOne({ where: { email: value } });
+            if (user) {
+                throw new Error('Failed register attempt');
+            }
+            return true;
         }),
     check('password')
         .exists({ checkFalsy: true })
@@ -83,7 +87,7 @@ router.post(
             req.session.save(() => res.redirect(`/films`));
         } else {
             const errors = validatorErrors.array().map((error) => error.msg);
-            res.render('index', {
+            res.render('register', {
                 genres,
                 user,
                 errors,
@@ -104,7 +108,14 @@ router.get(
 const loginValidators = [
     check('email')
         .exists({ checkFalsy: true })
-        .withMessage('Please provide an email'),
+        .withMessage('Email not valid')
+        .custom(async (value) => {
+            const user = await User.findOne({ where: { email: value } });
+            if (!user) {
+                throw new Error('Failed login attempt');
+            }
+            return true;
+        }),
     check('password')
         .exists({ checkFalsy: true })
         .withMessage('Please provide a password'),

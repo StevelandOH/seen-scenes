@@ -36,12 +36,12 @@ const userValidators = [
         .withMessage('Email cannot be longer than 100 characters')
         .isEmail()
         .withMessage('Email is not a valid email')
-        .custom((value) => {
-            return User.findOne({ where: { email: value } }).then((user) => {
-                if (user) {
-                    return Promise.reject('Email already exists');
-                }
-            });
+        .custom(async (value) => {
+            const user = await User.findOne({ where: { email: value } });
+            if (user) {
+                throw new Error('Failed register attempt');
+            }
+            return true;
         }),
     check('password')
         .exists({ checkFalsy: true })
@@ -84,7 +84,7 @@ router.post(
                 userId: user.id,
             });
             loginUser(req, res, user);
-            req.session.save(() => res.redirect(`/users/${user.id}`));
+            req.session.save(() => res.redirect(`/films`));
         } else {
             const errors = validatorErrors.array().map((error) => error.msg);
             res.render('register', {
@@ -109,7 +109,14 @@ router.get(
 const loginValidators = [
     check('email')
         .exists({ checkFalsy: true })
-        .withMessage('Please provide an email'),
+        .withMessage('Please provide an email')
+        .custom(async (value) => {
+            const user = await User.findOne({ where: { email: value } });
+            if (!user) {
+                throw new Error('Failed login attempt');
+            }
+            return true;
+        }),
     check('password')
         .exists({ checkFalsy: true })
         .withMessage('Please provide a password'),
@@ -148,6 +155,14 @@ router.post(
     })
 );
 
+router.post('/login/demo-user', asyncHandler( async(req, res) => {
+
+  const user = await User.findOne({ where: { email:"demouser@gmail.com" } });
+
+  loginUser(req, res, user);
+  req.session.save(() => res.redirect(`/`));
+}))
+
 router.post('/logout', (req, res) => {
     logoutUser(req, res);
     res.redirect('/');
@@ -164,6 +179,7 @@ router.get(
                 name: 'Watched',
             },
             include: Film,
+            limit: 10,
         });
         console.log(watchedReel);
         // const films = await Film.findAll({where:{id:FilmReel.filmId}});

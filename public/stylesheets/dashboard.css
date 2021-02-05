@@ -6,7 +6,7 @@
   margin: 10px auto;
   position: relative;
   text-align:center;
-  margin-top: 80px;
+  margin-top: 8px;
 }
 
 .filmBlock {
@@ -30,26 +30,81 @@
 
 body {
   background-color: #4f4d4d;
-  background-image: url('./img/speckle.svg')
+  background-image: url('./img/speckle.svg');
 }
 
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/*
 .user-info {
   display: flex;
   justify-content: center;
-}
 
-.profile-pic {
-  background-color: white;
-  height: 300px;
-  width: 300px;
-  position: relative;
-  margin-right: 30px;
-  margin-top: 30px;
+} */
+
+.star {
+  /* background-color: white; */
+  height: 476px;
+  width: 672px;
+  background-image: url("./img/star.png");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .info {
-  background-color: white;
-  margin-right: 30px;
-  margin-top: 30px;
-  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background-color: white; */
+  margin-bottom: 80px;
+  width: 400px;
+  padding-top: 0px;
+}
+
+.username-div {
+  margin-top: 20px;
+  font-size: 28px;
+  color: lightgray;
+  padding: 5px;
+  /* border-bottom: 1px solid lightgray; */
+}
+
+.watched {
+  line-height: 50px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  font-size: large;
+  color: lightgray;
+  margin: 0px 20px;
+}
+
+.watched:hover {
+  box-sizing: border-box;
+  color: lightblue;
+  /* border-bottom: solid lightblue; */
+  /* box-shadow: 0 4px 1px -2px lightblue; */
+}
+
+.biography-div {
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.biography-info {
+  line-height: 150%;
+  margin-bottom: 40px;
+}
+
+.bio-header {
+  font-size: large;
+  width: 160px;
+  margin-bottom: 0;
 }

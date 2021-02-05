@@ -30,3 +30,41 @@
 .newReelButton {
     margin: 10px;
 }
+
+.fields {
+    width: 100%;
+    padding: 20px 5px 5px 5px;
+}
+
+.fields input {
+    border: none;
+    outline: none;
+    background: white;
+    font-size: 18px;
+    color: #555;
+    padding: 20px 10px 20px 5px;
+}
+
+.input {
+    height: 50px;
+    width: 250px;
+    text-align: center;
+    border-radius: 25px;
+    box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
+}
+
+.newReelButton {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    width: 250px;
+    height: 50px;
+    border-radius: 30px;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'Lato', sans-serif;
+    color: rgb(107, 106, 106);
+    text-align: center;
+    background: rgb(177, 230, 250);
+    box-shadow: 3px 3px 8px #b1b1b1 -3px -3px 8px #ffffff;
+}
