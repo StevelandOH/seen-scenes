@@ -15,7 +15,11 @@ router.get(
     asyncHandler(async (req, res) => {
         const genres = await Genre.findAll();
         const users = User.build();
-        res.render('index', { genres, users, token: req.csrfToken() });
+        if (!res.locals.authenticated) {
+          res.render('index', { genres, users, token: req.csrfToken() });
+        } else {
+          res.redirect(`/users/${req.session.auth.userId}`)
+        }
     })
 );
 
