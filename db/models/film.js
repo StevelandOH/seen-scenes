@@ -52,7 +52,14 @@ module.exports = (sequelize, DataTypes) => {
 			foreignKey: 'filmId',
 			otherKey: 'userId',
 			through: 'Reviews',
-		});
+    });
+    // const columnMapping = {
+    //   foreignKey: 'filmId',
+    //   through: 'Likes',
+    //   otherKey: 'userId'
+    // }
+    // Film.belongsToMany(models.User, { columnMapping })
+    Film.hasMany(models.Like, { foreignKey: 'filmId' })
 	};
 	return Film;
 };
