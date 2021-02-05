@@ -58,3 +58,31 @@
 .text:hover {
   cursor: pointer;
 }
+
+.filmidContainer {
+  width: auto;
+  float: left;
+  margin: 10px 20px 10px 20px;
+  font-size: 12px;
+  min-height: 400px;
+  text-align: left;
+}
+.filmidPoster {
+    float: left;
+    height: 25rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+
+.filmidContents {
+  width: 75%;
+  margin-right: 0px;
+  float: left;
+  margin: 0 20px 10px 0;
+}
+
+.authenticated {
+  width: 10rem;
+  margin-left: 20px;
+}
+
