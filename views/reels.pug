@@ -17,14 +17,13 @@ block content
               each film in reel.Films 
                 a(href=`/films/${film.id}`)
                   img.filmPoster(src= film.posterPath)
-    div
+    div.newReel
       if errors
         +validationErrorSumary(errors)
       form(action=`/users/${user.id}/reels` method="post")
-        input(type="hidden" name="_csrf" value=token)
-        +field("New Reel...", "name")
+        input(type='text' name='name' placeholder='...add a new film reel')
         div
-          button(type="submit") Add New Film Reel
+          button(type="submit" class='newReelButton') Let's Do It!
 
 
     

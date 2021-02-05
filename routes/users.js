@@ -201,19 +201,19 @@ const newReelValidator = [
 
 router.post(
     '/:id/reels',
-    csrfProtection,
     newReelValidator,
     asyncHandler(async (req, res) => {
         const { name } = req.body;
         await Reel.create({
             name: name,
+            userId: req.params.id,
         });
-        const validatorErrors = validatorResult(req);
+        const validatorErrors = validationResult(req);
         if (validatorErrors.isEmpty()) {
             res.redirect('/films');
         } else {
             const errors = validatorErrors.array().map((error) => error.msg);
-            res.render('reels', { token: req.csrfToken(), errors });
+            res.render('reels', { errors });
         }
     })
 );
