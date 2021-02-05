@@ -4,6 +4,7 @@ append head
   link(rel="stylesheet" href="/stylesheets/index.css")
   link(rel="stylesheet" href="/stylesheets/films.css")
   script(src="/javascripts/films.js" type="module" defer)
+  script(src="/javascripts/thumbs-up.js" type="module" defer)
 
 block content
   div
@@ -16,6 +17,8 @@ block content
     div= `Release Date: ${film.releaseDate}`
     br
     div= `Genre: ${film.Genre.name}`
+
+  h1 Reviews
     div
   div
   if authenticated
@@ -30,6 +33,12 @@ block content
         textarea(name='edited-review' value= 'test')
         button.edit-review-button(type='submit' data-filmid= film.id data-userid= user.id) Edit Review
         button.delete-review-button(type='submit' data-filmid= film.id data-userid= user.id) Delete Review
+    if thumbsUp === null
+      div
+        div(class="text thumbs-up-btn" id="liked" data-filmid= film.id data-userid= user.id) Like
+    else
+      div
+        div(class="text thumbsed-up-btn" id="liked" data-filmid= film.id data-userid= user.id) Liked
 
 
 
@@ -38,6 +47,3 @@ block content
       if review.review
         div= review.review
          div= `- ${review.User.username}`
-
-
-
