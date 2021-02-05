@@ -155,6 +155,14 @@ router.post(
     })
 );
 
+router.post('/login/demo-user', asyncHandler( async(req, res) => {
+
+  const user = await User.findOne({ where: { email:"demouser@gmail.com" } });
+
+  loginUser(req, res, user);
+  req.session.save(() => res.redirect(`/`));
+}))
+
 router.post('/logout', (req, res) => {
     logoutUser(req, res);
     res.redirect('/');

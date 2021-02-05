@@ -20,13 +20,15 @@ html
 
           div(class="dashboard-btn btn" id="dashboard-btn" onclick=`location.href='/users/${user.id}'`) Dashboard
 
-          form(action="/users/logout" method="post")
-            div(class="logout-btn btn" id="logout-btn" onClick="javascript:this.parentNode.submit()") Logout
+          form(action="/users/logout" method="post" class="logout-div box bounce-6")
+            div(class="logout-btn" id="logout-btn" onClick="javascript:this.parentNode.submit()") Logout
 
       else
         div(class="controls")
-          div(class="films-btn btn" id="my-reels-btn" onclick=`location.href='/films'`) Demo
-
+          form(action="/users/login/demo-user" method="post")
+            div(class="demo-user-btn btn" id="demo-user-btn btn" onClick="javascript:this.parentNode.submit()") Demo
+          //- form(action="/users/login" method="post")
+          //-   div(class="demo-user-btn btn" id="demo-user-btn btn" value=""onClick="javascript:this.parentNode.submit()") Demo
           div(class="films-btn btn" id="my-reels-btn" onclick=`location.href='/films'`) Browse
 
           div(class="my-reels-btn btn" id="my-reels-btn" onclick=`location.href='/users/login'`) Login

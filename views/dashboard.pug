@@ -10,17 +10,16 @@ block content
 
   div(class="content")
 
-    div(class="username")= user.username
+    div(class="username-div")= user.username
 
     div(class="star")
 
     div(class="info")
-      div(class="email")
-        div= user.email
-      div(class="biography")
-        div= user.biography
-      div(class="favorite-genre")
-        div= user.Genre.name
+      div(class="biography-div")
+        p(class="bio-header") A little bit about me ...
+        p(class="biography-info")= user.biography
+        div(class="favorite-genre-div")
+          div=`Favorite Genre:  ${user.Genre.name}`
     div(class="watched" onclick=`location.href='/users/${user.id}/reels'`) Watched →
     div(class="filmContainer")
       div
