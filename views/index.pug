@@ -8,10 +8,10 @@ append head
 block content
   body
   div 
+    if errors
+      +validationErrorSummary(errors)
     div.loginRegisterContainer 
       div.loginRegister Register
-        if errors
-            +validationErrorSummary(errors)
         form(action="/" method="post")
             input(type="hidden" name="_csrf" value=token)
             +field("User Name", "username")
@@ -29,8 +29,6 @@ block content
             div
               button(type="submit") Register
       div.loginRegister Login
-        if errors
-         +validationErrorSummary(errors)
         form(action="/login" method="post")
           input(type="hidden" name="_csrf" value=token)
           +field("Email", "email", "email")

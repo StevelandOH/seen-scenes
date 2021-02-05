@@ -27,11 +27,11 @@ const userValidators = [
         .withMessage('Username cannot be longer than 20 characters'),
     check('email')
         .exists({ checkFalsy: true })
-        .withMessage('Please provide an email')
+        .withMessage('Email not valid')
         .isLength({ max: 100 })
         .withMessage('Email cannot be longer than 100 characters')
         .isEmail()
-        .withMessage('Email is not a valid email')
+        .withMessage('Email structure needs to be - email@email.com')
         .custom(async (value) => {
             const user = await User.findOne({ where: { email: value } });
             if (user) {
@@ -83,7 +83,7 @@ router.post(
             req.session.save(() => res.redirect(`/films`));
         } else {
             const errors = validatorErrors.array().map((error) => error.msg);
-            res.render('index', {
+            res.render('register', {
                 genres,
                 user,
                 errors,
@@ -104,7 +104,7 @@ router.get(
 const loginValidators = [
     check('email')
         .exists({ checkFalsy: true })
-        .withMessage('Please provide an email')
+        .withMessage('Email not valid')
         .custom(async (value) => {
             const user = await User.findOne({ where: { email: value } });
             if (!user) {
