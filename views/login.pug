@@ -10,8 +10,6 @@ append head
 block content
    body
       div.loginContainer
-         if errors
-            +validationErrorSummary(errors)
          div.login
             form(action="/users/login" method="post")
                input(type="hidden" name="_csrf" value=token)
@@ -29,3 +27,6 @@ block content
                   button.login-button(type="submit") Login
                div
                   p: a(href="/users/register") Don't have an account?
+            div.errorsList 
+               if errors
+                  +validationErrorSummary(errors)

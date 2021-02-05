@@ -38,8 +38,8 @@ const userValidators = [
         .withMessage('Email is not a valid email')
         .custom(async (value) => {
             const user = await User.findOne({ where: { email: value } });
-            if (!user) {
-                throw new Error('Failed login attempt');
+            if (user) {
+                throw new Error('Failed register attempt');
             }
             return true;
         }),
@@ -84,7 +84,7 @@ router.post(
                 userId: user.id,
             });
             loginUser(req, res, user);
-            req.session.save(() => res.redirect(`/users/${user.id}`));
+            req.session.save(() => res.redirect(`/films`));
         } else {
             const errors = validatorErrors.array().map((error) => error.msg);
             res.render('register', {
