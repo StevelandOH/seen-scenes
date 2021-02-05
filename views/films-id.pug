@@ -17,22 +17,31 @@ block content
     div= `Release Date: ${film.releaseDate}`
     br
     div= `Genre: ${film.Genre.name}`
-
-  h1 Reviews
-    div
-  div
+    br
+  .authenticated
   if authenticated
-    if !userReview
-      form.review-form(action=`/films/${film.id}/reviews/new` method='POST')
-        input(type='hidden' name='_csrf' value=token)
-        textarea(name='review' placeholder= 'Leave a review')
-        button.submit-review-button(type='submit' data-filmid= film.id data-username= user.username) Submit
-    else if userReview
-      form.review-form(action=`/films/${film.id}/reviews/edit` method='POST')
-        input(type='hidden' name='_csrf' value=token)
-        textarea(name='edited-review' value= 'test')
-        button.edit-review-button(type='submit' data-filmid= film.id data-userid= user.id) Edit Review
-        button.delete-review-button(type='submit' data-filmid= film.id data-userid= user.id) Delete Review
+    .reelContainer
+      form(action=`./${film.id}/reel` method='POST')
+        input(type='hidden' name='filmId' value=film.id)
+        select(name='reelId')
+          each reel in reels
+            option(value=reel.id)= reel.name
+        button(type='submit') Add
+
+
+
+    .reviewContainer
+      if !userReview
+        form.review-form(action=`/films/${film.id}/reviews/new` method='POST')
+          input(type='hidden' name='_csrf' value=token)
+          textarea(name='review' placeholder= 'Leave a review')
+          button.submit-review-button(type='submit' data-filmid= film.id data-username= user.username) Submit
+      else if userReview
+        form.review-form(action=`/films/${film.id}/reviews/edit` method='POST')
+          input(type='hidden' name='_csrf' value=token)
+          textarea(name='edited-review' value= 'test')
+          button.edit-review-button(type='submit' data-filmid= film.id data-userid= user.id) Edit Review
+          button.delete-review-button(type='submit' data-filmid= film.id data-userid= user.id) Delete Review
     if thumbsUp === null
       div
         div(class="text thumbs-up-btn" id="liked" data-filmid= film.id data-userid= user.id) Like

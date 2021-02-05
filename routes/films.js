@@ -2,7 +2,7 @@ const express = require('express')
 const csrf = require('csurf');
 const asyncHandler = require('express-async-handler');
 const db = require('../db/models')
-const { Review, Like } = require('../db/models');
+const { Like } = require('../db/models');
 
 const router = express.Router()
 const csrfProtection = csrf({ cookie: true });
@@ -21,10 +21,19 @@ router.get('/:id', csrfProtection, asyncHandler(async (req, res) => {
   const authenticated = res.locals.authenticated
 
   if (authenticated) {
+    const reels = await db.Reel.findAll({where: {userId: req.session.auth.userId }})
     const thumbsUp = await Like.findOne({where: {userId: req.session.auth.userId, filmId:id}});
     const user = await db.User.findByPk(req.session.auth.userId)
     const userReview = await db.Review.findOne({where: {userId: user.id, filmId: id }})
-    res.render('films-id', { film, reviews, user, userReview, thumbsUp, authenticated, token: req.csrfToken() })
+    res.render('films-id', {
+      film,
+      reviews,
+      reels,
+      user,
+      userReview,
+      thumbsUp,
+      authenticated,
+      token: req.csrfToken() })
   } else {
     res.render('films-id', {film, reviews})
   }
@@ -37,7 +46,7 @@ router.post('/:id/review/new', asyncHandler(async (req, res) => {
 
   // console.log(review, userId, filmId)
 
-  const reviewed = await db.Review.create({
+  await db.Review.create({
     review,
     userId,
     filmId
@@ -69,6 +78,10 @@ router.post('/:id/like', asyncHandler(async (req, res) => {
     filmId,
   })
 
+  // await db.FilmReel.create({
+  //   userId: 1, filmId, reelId: userId
+  // })
+
   res.json();
 
 }))
@@ -84,8 +97,30 @@ router.delete('/:id/like', asyncHandler(async (req, res) => {
     }
   })
 
+  // await db.FilmReel.destroy({
+  //   where: {userId: 1, filmId, reelId: userId}
+  // })
+
   res.json();
 
+}))
+
+router.post('/:id/reel', asyncHandler(async (req, res) => {
+  const { filmId, reelId } = req.body
+  const userId = req.session.auth.userId
+
+  const reeledMovie = await db.FilmReel.findAll({
+    where: {
+      filmId, reelId, userId: req.session.auth.userId }})
+
+  console.log(reeledMovie)
+
+  if (!reeledMovie[0]) {
+    await db.FilmReel.create({filmId, reelId, userId})
+    res.redirect(`/films/${filmId}`)
+  } else {
+    throw new Error ('Movie Already in Reel')
+  }
 }))
 
 
