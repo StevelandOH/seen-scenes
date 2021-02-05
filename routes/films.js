@@ -18,14 +18,13 @@ router.get('/:id', csrfProtection, asyncHandler(async (req, res) => {
   const id = req.params.id
   const film = await db.Film.findByPk(id, { include: db.Genre })
   const reviews = await db.Review.findAll( {include: db.User, order: [['updatedAt', 'DESC']], where: {filmId: id}},)
-  const thumbsUp = await Like.findOne({where: {userId: req.session.auth.userId, filmId:id}});
-  res.render('films-id', { film, reviews, thumbsUp, token: req.csrfToken() })
   const authenticated = res.locals.authenticated
 
   if (authenticated) {
+    const thumbsUp = await Like.findOne({where: {userId: req.session.auth.userId, filmId:id}});
     const user = await db.User.findByPk(req.session.auth.userId)
     const userReview = await db.Review.findOne({where: {userId: user.id, filmId: id }})
-    res.render('films-id', { film, reviews, user, userReview, authenticated, token: req.csrfToken() })
+    res.render('films-id', { film, reviews, user, userReview, thumbsUp, authenticated, token: req.csrfToken() })
   } else {
     res.render('films-id', {film, reviews})
   }
