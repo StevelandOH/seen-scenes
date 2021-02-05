@@ -1,28 +1,134 @@
 h1 {
-	color: white;
+    color: #555;
 }
 
 body {
-	background-color: #4f4d4d;
-	background-image: url('./img/Endless-Constellation\ \(1\).svg');
-	color: white;
+    font-family: 'Lucida Grande', Helvetica, Arial, sans-serif;
+    background-color: #4f4d4d;
+    background-image: url('./img/Endless-Constellation\ \(1\).svg');
+    color: #555;
+    overflow: scroll;
 }
 
 .loginRegisterContainer {
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
-	margin: 10px auto;
-	position: relative;
-	text-align: center;
+    display: flex;
+    justify-content: center;
+    margin: 10px auto;
+    position: relative;
+    text-align: center;
 }
 
-.loginRegister {
-	margin: 100px;
-	display: flex;
-	flex-direction: column;
-	align-content: center;
-	text-align: center;
+.registerContainer {
+    margin: 0 auto;
+    height: 1100px;
+    width: 100vw;
+    overflow: scroll;
+    font-family: 'Lato', 'sans-serif';
+    font-weight: 700;
+    display: flex;
+    padding: 50px;
+    margin-bottom: 50px;
+    justify-content: center;
+    color: #555;
 }
 
+.loginContainer {
+    margin: 0 auto;
+    height: 100vh;
+    width: 100vw;
+    overflow: scroll;
+    font-family: 'Lato', 'sans-serif';
+    font-weight: 700;
+    display: flex;
+    margin-top: 50px;
+    justify-content: center;
+    color: #555;
+}
 
+.register {
+    opacity: 0.7;
+    width: 430px;
+    height: 850px;
+    padding: 35px 35px 35px 35px;
+    border-radius: 40px;
+    background: rgba(255, 255, 255);
+}
+
+.login {
+    opacity: 0.7;
+    width: 430px;
+    height: 400px;
+    padding: 35px 35px 35px 35px;
+    border-radius: 40px;
+    background: rgba(255, 255, 255);
+}
+
+.fields {
+    width: 100%;
+    padding: 20px 5px 5px 5px;
+}
+
+.fields input {
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 18px;
+    color: #555;
+    padding: 20px 10px 20px 5px;
+}
+
+.username,
+.password,
+.confirm-password,
+.email {
+    text-align: center;
+    margin-bottom: 30px;
+    border-radius: 25px;
+    box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
+}
+
+.favorite-genre,
+.biography {
+    font-family: 'Lato', 'sans-serif';
+    color: #555;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.fields svg {
+    height: 22px;
+    margin: 0 10px -3px 25px;
+}
+
+.register-button,
+.login-button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    height: 60px;
+    border-radius: 30px;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'Lato', sans-serif;
+    color: rgb(107, 106, 106);
+    text-align: center;
+    background: rgb(177, 230, 250);
+    box-shadow: 3px 3px 8px #b1b1b1 -3px -3px 8px #ffffff;
+}
+
+.errorsContainer {
+    padding: 50px;
+    text-align: center;
+    color: white;
+    opacity: 0.8;
+    font-style: italic;
+}
+
+.or {
+    font-family: 'Lucida Grande', Helvetica, Arial, sans-serif;
+    color: white;
+    opacity: 0.4;
+    margin-top: 250px;
+    margin-right: 10px;
+}

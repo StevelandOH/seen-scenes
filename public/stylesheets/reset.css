@@ -1,29 +1,42 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding: 50px;
+    font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+    color: #00b7ff;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-h1, h2, h3, h4, h5, h6, a, ol, li, ul, div, span,
-body, header, nav {
-  font-size: 1rem;
-  color: inherit;
-  background-color: transparent;
-  margin: 0;
-  padding: 0;
-  outline: 0;
-  font-weight: normal;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+ol,
+li,
+ul,
+div,
+span,
+body,
+header,
+nav {
+    font-size: 1rem;
+    color: inherit;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    font-weight: normal;
 }
 
 h1 {
-  font-size: 2rem;
+    font-size: 2rem;
 }
 
 .navbar {
@@ -39,18 +52,18 @@ h1 {
 }
 
 .btn {
-  line-height: 50px;
-  cursor: pointer;
-  font-size: large;
-  color: lightgray;
-  margin: 0px 20px;
+    line-height: 50px;
+    cursor: pointer;
+    font-size: large;
+    color: lightgray;
+    margin: 0px 20px;
 }
 
 .btn:hover {
-  box-sizing: border-box;
-  color: lightblue;
-  /* border-bottom: solid lightblue; */
-  box-shadow: 0 4px 1px -2px lightblue;
+    box-sizing: border-box;
+    color: rgb(129, 149, 156);
+    /* border-bottom: solid lightblue; */
+    box-shadow: 0 4px 1px -2px lightblue;
 }
 
 .controls {
