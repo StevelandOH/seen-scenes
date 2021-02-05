@@ -1,24 +1,21 @@
-* {
-    box-sizing: border-box;
-}
-
-.loginContainer {
+.registerContainer {
     margin: 0 auto;
-    height: 100vh;
+    height: 1100px;
     width: 100vw;
     overflow: scroll;
     font-family: 'Lato', 'sans-serif';
     font-weight: 700;
     display: flex;
-    margin-top: 50px;
+    padding: 50px;
+    margin-bottom: 50px;
     justify-content: center;
     color: #555;
 }
 
-.login {
+.register {
     opacity: 0.7;
     width: 430px;
-    height: 350px;
+    height: 800px;
     padding: 35px 35px 35px 35px;
     border-radius: 40px;
     background: rgba(255, 255, 255);
@@ -39,10 +36,21 @@
 }
 
 .username,
-.password {
+.password,
+.confirm-password,
+.email {
+    text-align: center;
     margin-bottom: 30px;
     border-radius: 25px;
     box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
+}
+
+.favorite-genre,
+.biography {
+    font-family: 'Lato', 'sans-serif';
+    color: #555;
+    margin-bottom: 30px;
+    text-align: center;
 }
 
 .fields svg {
@@ -50,7 +58,7 @@
     margin: 0 10px -3px 25px;
 }
 
-.login-button {
+.register-button {
     outline: none;
     border: none;
     cursor: pointer;
@@ -67,6 +75,9 @@
 }
 
 .errorsContainer {
+    padding: 50px;
     text-align: center;
     color: white;
+    opacity: 0.8;
+    font-style: italic;
 }

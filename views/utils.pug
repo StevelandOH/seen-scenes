@@ -6,7 +6,7 @@ mixin field(labelText, fieldName, fieldType = "text", className)
 mixin validationErrorSummary(errors)
    div
       p 🖐🏻 🖐🏼 🖐🏽 🖐🏾 🖐🏿
-      p STOP! The following error(s)
-      ul
-         each error in errors
-            li=error
+      p STOP! The following error(s) occured...
+         div 
+            each error in errors
+               p=`...${error}`

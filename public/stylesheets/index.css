@@ -1,11 +1,12 @@
 h1 {
-    color: white;
+    color: #555;
 }
 
 body {
     background-color: #4f4d4d;
     background-image: url('./img/Endless-Constellation\ \(1\).svg');
-    color: white;
+    color: #555;
+    overflow: scroll;
 }
 
 .loginRegisterContainer {
@@ -23,4 +24,11 @@ body {
     flex-direction: column;
     align-content: center;
     text-align: center;
+}
+
+.errorsContainer {
+    text-align: center;
+    color: white;
+    opacity: 0.8;
+    font-style: italic;
 }
