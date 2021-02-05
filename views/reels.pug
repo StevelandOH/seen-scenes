@@ -1,4 +1,5 @@
 extends layout
+include utils.pug
 
 append head
   link(rel="stylesheet" href="/stylesheets/index.css")
@@ -16,7 +17,15 @@ block content
               each film in reel.Films 
                 a(href=`/films/${film.id}`)
                   img.filmPoster(src= film.posterPath)
-          
+    div.newReel
+      if errors
+        +validationErrorSumary(errors)
+      form(action=`/users/${user.id}/reels` method="post")
+        input(type='text' name='name' placeholder='...add a new film reel')
+        div
+          button(type="submit" class='newReelButton') Let's Do It!
+
+
     
 
 

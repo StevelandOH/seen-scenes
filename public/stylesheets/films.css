@@ -12,8 +12,49 @@
 	flex-direction: column;
 	align-content: center;
 	text-align: center;
-	margin: 10px;
 }
+
 .filmPoster {
-	height: 15rem;
+  height: 15rem;
+}
+
+.filmPoster:hover {
+  opacity: 0.8;
+  cursor: pointer;
+  -webkit-transform: scale(1.05, 1.05);
+  transform: scale(1.05, 1.05);
+
+}
+
+.thumbs-up-btn {
+  height: 30px;
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid white;
+}
+
+.thumbsed-up-btn {
+  height: 30px;
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(84, 84, 84);
+  border-color: lightgray;
+  color: white;
+}
+
+
+
+.text {
+  width: 60px;
+  height: 30px;
+  text-align: center;
+  padding-top: 5px;
+}
+
+.text:hover {
+  cursor: pointer;
 }

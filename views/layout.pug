@@ -8,11 +8,13 @@ html
         link(rel="stylesheet" href="/stylesheets/index.css")
   body
     nav(class="navbar")
-      div(class="home-btn btn" id="home-btn" onclick="location.href='/'") Homepage
-        //- a(href="/") Homepage
+      div(class="home-btn btn" id="home-btn" onclick="location.href='/'") 📽
+
       if locals.authenticated
-        //- span Welcome, #{user.username}
+
         div(class="controls")
+
+          div(class="films-btn btn" id="my-reels-btn" onclick=`location.href='/films'`) Films
 
           div(class="my-reels-btn btn" id="my-reels-btn" onclick=`location.href='/users/${user.id}/reels'`) My Reels
 
@@ -20,10 +22,6 @@ html
 
           form(action="/users/logout" method="post")
             div(class="logout-btn btn" id="logout-btn" onClick="javascript:this.parentNode.submit()") Logout
-
-        //- form(action="/users/logout" method="post")
-        //-   button(type="submit") Logout
-        //- a(href=`/users/${user.id}`) Dashboard
 
       else
         div(class="controls")
