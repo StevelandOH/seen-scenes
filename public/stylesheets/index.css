@@ -1,12 +1,12 @@
 h1 {
-    color: #555;
+    color: white;
 }
 
 body {
     font-family: 'Lucida Grande', Helvetica, Arial, sans-serif;
     background-color: #4f4d4d;
     background-image: url('./img/Endless-Constellation\ \(1\).svg');
-    color: #555;
+    color: white;
     overflow: scroll;
 }
 

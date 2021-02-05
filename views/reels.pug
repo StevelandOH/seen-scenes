@@ -9,7 +9,7 @@ append head
 
 block content 
   body
-    div.reelContainer
+    .reelContainer
       each reel in reels 
         div.reelTitle
           h2= reel.name
@@ -17,11 +17,11 @@ block content
               each film in reel.Films 
                 a(href=`/films/${film.id}`)
                   img.filmPoster(src= film.posterPath)
-    div.newReel
-      if errors
-        +validationErrorSumary(errors)
+    .newReel 
       form(action=`/users/${user.id}/reels` method="post")
-        input(type='text' name='name' placeholder='...add a new film reel')
+        .fields
+          input(class="input" type='text' name='name' placeholder='...add a new reel')
+
         div
           button(type="submit" class='newReelButton') Let's Do It!
 
