@@ -7,21 +7,21 @@ append head
 
 block content
   body
+
   div(class="content")
-    div(class="username")
+
+    div(class="username")= user.username
 
     div(class="star")
 
-    div(class="user-info")
-      div(class="info")
-        div(class="username")
-          div= user.username
-        div(class="email")
-          div= user.email
-        div(class="biography")
-          div= user.biography
-        div(class="favorite-genre")
-          div= user.Genre.name
+    div(class="info")
+      div(class="email")
+        div= user.email
+      div(class="biography")
+        div= user.biography
+      div(class="favorite-genre")
+        div= user.Genre.name
+    div(class="watched") Watched →
     div(class="filmContainer")
       div
         each film in watchedReel.Films

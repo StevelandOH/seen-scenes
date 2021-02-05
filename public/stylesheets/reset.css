@@ -32,6 +32,10 @@ h1 {
   height: auto;
   justify-content: space-between;
   margin-bottom: 10px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .btn {

@@ -171,6 +171,7 @@ router.get(
                 name: 'Watched',
             },
             include: Film,
+            limit: 10,
         });
         console.log(watchedReel);
         // const films = await Film.findAll({where:{id:FilmReel.filmId}});

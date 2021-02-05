@@ -6,7 +6,7 @@
   margin: 10px auto;
   position: relative;
   text-align:center;
-  margin-top: 80px;
+  margin-top: 8px;
 }
 
 .filmBlock {
@@ -39,11 +39,12 @@ body {
   justify-content: center;
   align-items: center;
 }
-
+/*
 .user-info {
   display: flex;
   justify-content: center;
-}
+
+} */
 
 .star {
   /* background-color: white; */
@@ -55,8 +56,35 @@ body {
 }
 
 .info {
-  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background-color: white; */
   margin-top: 30px;
   width: 400px;
   padding-top: 30px;
+}
+
+.username {
+  font-size: 28px;
+  color: lightgray;
+  padding: 5px;
+  border-bottom: 1px solid lightgray;
+}
+
+.watched {
+  line-height: 50px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  font-size: large;
+  color: lightgray;
+  margin: 0px 20px;
+}
+
+.watched:hover {
+  box-sizing: border-box;
+  color: lightblue;
+  /* border-bottom: solid lightblue; */
+  /* box-shadow: 0 4px 1px -2px lightblue; */
 }
