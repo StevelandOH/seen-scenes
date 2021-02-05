@@ -37,6 +37,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .user-info {
@@ -45,17 +46,17 @@ body {
 }
 
 .star {
-  background-color: white;
-  height: 300px;
-  width: 300px;
+  /* background-color: white; */
+  height: 476px;
+  width: 672px;
   background-image: url("./img/star.png");
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 
 .info {
   background-color: white;
-  margin-right: 30px;
   margin-top: 30px;
-  width: 500px;
+  width: 400px;
+  padding-top: 30px;
 }
