@@ -36,12 +36,12 @@ const userValidators = [
         .withMessage('Email cannot be longer than 100 characters')
         .isEmail()
         .withMessage('Email is not a valid email')
-        .custom((value) => {
-            return User.findOne({ where: { email: value } }).then((user) => {
-                if (user) {
-                    return Promise.reject('Email already exists');
-                }
-            });
+        .custom(async (value) => {
+            const user = await User.findOne({ where: { email: value } });
+            if (!user) {
+                throw new Error('Failed login attempt');
+            }
+            return true;
         }),
     check('password')
         .exists({ checkFalsy: true })
@@ -109,7 +109,14 @@ router.get(
 const loginValidators = [
     check('email')
         .exists({ checkFalsy: true })
-        .withMessage('Please provide an email'),
+        .withMessage('Please provide an email')
+        .custom(async (value) => {
+            const user = await User.findOne({ where: { email: value } });
+            if (!user) {
+                throw new Error('Failed login attempt');
+            }
+            return true;
+        }),
     check('password')
         .exists({ checkFalsy: true })
         .withMessage('Please provide a password'),
