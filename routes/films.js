@@ -56,15 +56,15 @@ router.post('/:id/review/new', asyncHandler(async (req, res) => {
 
 
 
-router.put('/:id/review/edit', asyncHandler(async (req, res) => {
-  const { review, userId, filmId } = req.body
-  const reviewed = await db.Review.findOne({where: {userId: userId, filmId: filmId }})
+router.post('/:id/review/delete', asyncHandler(async (req, res) => {
+  const { userId, filmId } = req.body
+  console.log(userId, filmId)
+  const review = await db.Review.findOne({where: {userId: userId, filmId: filmId }})
 
-  reviewed.review = review
 
-  reviewed.save()
+  review.destroy()
 
-  res.json()
+  res.redirect(`/films/${filmId}`)
 
 }))
 
@@ -122,6 +122,7 @@ router.post('/:id/reel', asyncHandler(async (req, res) => {
     throw new Error ('Movie Already in Reel')
   }
 }))
+
 
 
 module.exports = router;

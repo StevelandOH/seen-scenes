@@ -32,6 +32,10 @@ body {
     color: #555;
 }
 
+textarea {
+	resize: none;
+}
+
 .loginContainer {
     margin: 0 auto;
     height: 100vh;

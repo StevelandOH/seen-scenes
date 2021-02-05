@@ -2,8 +2,6 @@
 
   const reviewForm = document.querySelector('.review-form')
   const submitReviewButton = document.querySelector('.submit-review-button')
-  const editReviewButton = document.querySelector('.edit-review-button')
-  const deleteReviewButton = document.querySelector('.delete-review-button')
   const reviewSection = document.querySelector('.reviewContainer')
 
   reviewForm.addEventListener('submit', async(e) => {
@@ -46,45 +44,6 @@
       console.error(err)
     }
 
-  })
-
-  editReviewButton.addEventListener('onclick', async(e) => {
-    e.preventDefault()
-    const formData = new FormData(reviewForm)
-
-    const review = formData.get('review')
-    const filmId = editReviewButton.dataset.filmid
-    const userId = editReviewButton.dataset.username
-
-
-    const body = { review, filmId, userId }
-
-    try {
-      const res = await fetch(`/films/${filmId}/review/new`, {
-        method: "POST",
-        body: JSON.stringify(body),
-        headers: {
-          "Content-Type": "application/json"
-        },
-      })
-
-      const div = document.createElement('div')
-      const div2 = document.createElement('div')
-      div.innerHTML = review
-      div2.innerHTML = '-test'
-
-      div.appendChild(div2)
-
-
-      reviewSection.insertBefore(div, reviewSection.firstChild)
-
-      if (!res.ok) {
-        throw res
-      }
-
-    } catch (err) {
-      console.error(err)
-    }
   })
 
 // })
