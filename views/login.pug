@@ -8,6 +8,10 @@ append head
 
 block content
    body
+      .errorsContainer 
+         .errorsList 
+            if errors
+               +validationErrorSummary(errors)
       div.loginContainer
          div.login
             form(action="/users/login" method="post")
@@ -24,7 +28,4 @@ block content
                   .button 
                      button.login-button(type="submit") Login
                   p: a(href="/users/register") Don't have an account?
-               .errorsContainer 
-                     .errorsList 
-                        if errors
-                           +validationErrorSummary(errors)
+               

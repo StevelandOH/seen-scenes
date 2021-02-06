@@ -7,6 +7,10 @@ append head
 
 block content
    body
+      .errorsContainer 
+                  .errorsList 
+                     if errors
+                        +validationErrorSummary(errors)
       div.registerContainer
          div.register
             form(action="/users/register" method="post")
@@ -30,14 +34,12 @@ block content
                      label tell us a little about yourself...
                      textarea(name="biography" placeholder="Tell us a little about yourself... or not, your call.." cols="40" rows="10") 
                   .favorite-genre 
-                     select(name="genreId")
-                        each genre in genres 
-                           option(value=genre.id)=genre.name 
+                     label= "favorite genre  -  "
+                        select(name="genreId")
+                           each genre in genres 
+                              option(value=genre.id)=genre.name 
                   .button 
                      button.register-button(type="submit") Register Account
                   p: a(href="/users/login") Already have an account?
-               .errorsContainer 
-                  .errorsList 
-                     if errors
-                        +validationErrorSummary(errors)
+               
     
