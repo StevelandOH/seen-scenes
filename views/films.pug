@@ -9,7 +9,7 @@ append head
 block content
   body
     h1
-    div.filmContainer
+    div.filmsContainer
       if errors
         +validationErrorSummary(errors)
       else if newMoviesArray
@@ -19,7 +19,7 @@ block content
           each movie in newMoviesArray
             if movie.posterPath
               .filmBlock
-                img(src= `https://image.tmdb.org/t/p/w342/${movie.posterPath}` id= 'moviePoster')
+                img.filmsPosters(src= `https://image.tmdb.org/t/p/w342/${movie.posterPath}` id= 'moviePoster')
                 form(action="/films/newFilm" method="post")
                   input(type='hidden' name='_csrf' value=token)
                   input(type="hidden" name="title" value=movie.title)
