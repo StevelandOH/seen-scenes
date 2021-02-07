@@ -3,6 +3,7 @@ const csrf = require('csurf');
 const asyncHandler = require('express-async-handler');
 const db = require('../db/models')
 const { Like } = require('../db/models');
+const { movieApi } = require('../config');
 
 const router = express.Router()
 const csrfProtection = csrf({ cookie: true });
@@ -44,8 +45,6 @@ router.post('/:id/review/new', asyncHandler(async (req, res) => {
   const { review, filmId } = req.body
   const userId = req.session.auth.userId
 
-  // console.log(review, userId, filmId)
-
   await db.Review.create({
     review,
     userId,
@@ -78,9 +77,6 @@ router.post('/:id/like', asyncHandler(async (req, res) => {
     filmId,
   })
 
-  // await db.FilmReel.create({
-  //   userId: 1, filmId, reelId: userId
-  // })
 
   res.json();
 
@@ -96,10 +92,6 @@ router.delete('/:id/like', asyncHandler(async (req, res) => {
       filmId,
     }
   })
-
-  // await db.FilmReel.destroy({
-  //   where: {userId: 1, filmId, reelId: userId}
-  // })
 
   res.json();
 
@@ -122,6 +114,8 @@ router.post('/:id/reel', asyncHandler(async (req, res) => {
     throw new Error ('Movie Already in Reel')
   }
 }))
+
+
 
 
 
