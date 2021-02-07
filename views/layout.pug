@@ -9,6 +9,11 @@ html
   body
     nav(class="navbar")
       div(class="home-btn btn" id="home-btn" onclick="location.href='/'") 📽
+      form(class="search-bar" action="/films/search", method="post")
+            input(type='hidden' name='_csrf' value=token)
+            input(class="search" type='text' name='query' placeholder='Search for a film')
+
+
 
       if locals.authenticated
 

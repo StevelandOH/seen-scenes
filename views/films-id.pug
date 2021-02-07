@@ -25,6 +25,8 @@ block content
       div= `Release Date: ${film.releaseDate}`
     .filmContents
       div= film.Genre.name
+    .filmContents
+      div= film.director
     if authenticated
   .reelContainer
     form(action=`./${film.id}/reel` method='POST')
