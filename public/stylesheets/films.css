@@ -36,7 +36,7 @@
     padding: 10px;
 }
 
-.text {
+.like-btn-text {
     width: 100px;
     height: 20px;
     text-align: center;
@@ -46,7 +46,7 @@
     color: #555;
 }
 
-.text:hover {
+.like-btn-text:hover {
   cursor: pointer;
 }
 
