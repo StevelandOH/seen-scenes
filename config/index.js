@@ -8,4 +8,5 @@ module.exports = {
 		host: process.env.DB_HOST,
 	},
 	sessionSecret: process.env.SESSION_SECRET,
+	movieAPI: process.env.MOVIEDB_APIKEY
 };
