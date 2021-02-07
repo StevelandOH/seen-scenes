@@ -18,7 +18,7 @@ status.addEventListener("click", async (e) => {
       });
 
       e.target.innerHTML = "Liked";
-      status.setAttribute("class", "text thumbsed-up-btn");
+      status.setAttribute("class", "like-btn-text thumbsed-up-btn");
 
 
     } else {
@@ -34,7 +34,7 @@ status.addEventListener("click", async (e) => {
       });
 
       e.target.innerHTML = "Like";
-      status.setAttribute("class", "text thumbs-up-btn");
+      status.setAttribute("class", "like-btn-text thumbs-up-btn");
 
 
     }
