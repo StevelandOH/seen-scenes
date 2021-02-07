@@ -9,19 +9,20 @@
     text-align: center;
 }
 
+.filmsContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
 .filmContents {
     padding: 10px;
 }
 
-.filmBlock {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    text-align: center;
-}
-
 .filmPoster {
-    height: 25rem;
+    height: 18rem;
+    border-radius: 30px;
 }
 
 .filmPoster:hover {
@@ -47,7 +48,7 @@
 }
 
 .like-btn-text:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .submit-review-button,
