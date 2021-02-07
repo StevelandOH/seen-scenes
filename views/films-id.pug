@@ -15,10 +15,10 @@ block content
       if authenticated
         if thumbsUp === null
           div
-            div(class="text thumbs-up-btn" id="liked" data-filmid= film.id data-userid= user.id) Like
+            div(class="like-btn-text thumbs-up-btn" id="liked" data-filmid= film.id data-userid= user.id) Like
         else
           div
-            div(class="text thumbsed-up-btn" id="liked" data-filmid= film.id data-userid= user.id) Liked
+            div(class="like-btn-text thumbsed-up-btn" id="liked" data-filmid= film.id data-userid= user.id) Liked
     .filmContents
       div= film.description
     .filmContents
@@ -56,4 +56,3 @@ block content
             input(type='hidden' name='filmId' value=film.id)
             input(type='hidden' name='userId' value=user.id)
             button.delete-review-button(type='submit') DELETE YOUR REVIEW
-
