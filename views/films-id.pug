@@ -7,51 +7,50 @@ append head
   script(src="/javascripts/thumbs-up.js" type="module" defer)
 
 block content
-  .filmidContainer
-    img.filmidPoster(src= film.posterPath)
-    .filmidContents
+  .filmContainer
+    .filmContents
       h1= film.title
-      br
-      div= `Plot: ${film.description}`
-      br
-      div= `Release Date: ${film.releaseDate}`
-      br
-      div= `Genre: ${film.Genre.name}`
-  .authenticated
-    if authenticated
-      .reelContainer
-        form(action=`./${film.id}/reel` method='POST')
-          input(type='hidden' name='filmId' value=film.id)
-          select(name='reelId')
-            each reel in reels
-              option(value=reel.id)= reel.name
-          button(type='submit') Add
-
-
-
-      .reviewContainer
-        if !userReview
-          form.review-form(action=`/films/${film.id}/reviews/new` method='POST')
-            input(type='hidden' name='_csrf' value=token)
-            textarea(name='review' placeholder= 'Leave a review')
-            button.submit-review-button(type='submit' data-filmid= film.id data-username= user.username) Submit
-        else if userReview
-          form.delete-review-form(action=`./${film.id}/review/delete` method='POST')
-            input(type='hidden' name='_csrf' value=token)
-            input(type='hidden' name='filmId' value=film.id)
-            input(type='hidden' name='userId' value=user.id)
-            button.delete-review-button(type='submit') Delete Review
+    .filmContents 
+      img.filmPoster(src= film.posterPath)
+      if authenticated
       if thumbsUp === null
         div
-          div(class="text thumbs-up-btn" id="liked" data-filmid= film.id data-userid= user.id) Like
+          div(class="text thumbs-up-btn" id="liked" data-filmid= film.id data-userid= user.id) Like 
       else
         div
           div(class="text thumbsed-up-btn" id="liked" data-filmid= film.id data-userid= user.id) Liked
-
-
-
-  div.reviewContainer
-    each review in reviews
-      if review.review
-        div= review.review
-         div= `- ${review.User.username}`
+    .filmContents
+      div= film.description
+    .filmContents
+      div= `Release Date: ${film.releaseDate}`
+    .filmContents
+      div= film.Genre.name
+    if authenticated
+  .reelContainer
+    form(action=`./${film.id}/reel` method='POST')
+      input(type='hidden' name='filmId' value=film.id)
+      select(class="dropDown" name='reelId')
+        each reel in reels
+          option(value=reel.id)= reel.name
+    button.add(type='submit') ADD TO REEL
+  .review
+    .existingReviews
+      each review in reviews
+        if review.review
+          div= review.review
+          div= `- ${review.User.username}`
+          div -----------
+    .reviewContainer
+      if !userReview
+        form.review-form(action=`/films/${film.id}/reviews/new` method='POST')
+          input(type='hidden' name='_csrf' value=token)
+          textarea(class="reviewText" name='review' placeholder= 'LEAVE A REVIEW')
+          div
+          button.submit-review-button(type='submit' data-filmid= film.id data-username= user.username) SUBMIT YOUR REVIEW
+      else if userReview
+        form.delete-review-form(action=`./${film.id}/review/delete` method='POST')
+          input(type='hidden' name='_csrf' value=token)
+          input(type='hidden' name='filmId' value=film.id)
+          input(type='hidden' name='userId' value=user.id)
+          button.delete-review-button(type='submit') DELETE YOUR REVIEW
+    

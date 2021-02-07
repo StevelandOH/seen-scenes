@@ -1,70 +1,54 @@
 h1 {
-    color: white;
+    color: lightgrey;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 body {
-    font-family: 'Lucida Grande', Helvetica, Arial, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color: #4f4d4d;
     background-image: url('./img/Endless-Constellation\ \(1\).svg');
-    color: white;
-    /* overflow: scroll; */
+    color: lightgrey;
 }
 
 .loginRegisterContainer {
     display: flex;
     justify-content: center;
-    margin: 10px auto;
     position: relative;
     text-align: center;
 }
 
 .registerContainer {
-    margin: 0 auto;
-    height: 1100px;
     width: 100vw;
-    /* overflow: scroll; */
-    font-family: 'Lato', 'sans-serif';
-    font-weight: 700;
     display: flex;
-    padding: 50px;
     margin-bottom: 50px;
     justify-content: center;
     color: #555;
 }
 
-textarea {
-	resize: none;
-}
-
 .loginContainer {
-    margin: 0 auto;
-    height: 100vh;
     width: 100vw;
-    /* overflow: scroll; */
-    font-family: 'Lato', 'sans-serif';
-    font-weight: 700;
     display: flex;
-    margin-top: 250px;
     justify-content: center;
     color: #555;
 }
 
 .register {
-    opacity: 0.7;
+    text-align: center;
     width: 430px;
-    height: 850px;
-    padding: 35px 35px 35px 35px;
+    height: 750px;
+    padding: 5px 35px 35px 35px;
     border-radius: 40px;
-    background: rgba(255, 255, 255);
+    background: rgba(255, 255, 255, 0.9);
 }
 
 .login {
-    opacity: 0.7;
+    text-align: center;
     width: 430px;
-    height: 400px;
-    padding: 35px 35px 35px 35px;
+    height: 300px;
+    padding: 5px 35px 35px 35px;
     border-radius: 40px;
-    background: rgba(255, 255, 255);
+    background: rgba(255, 255, 255, 0.9);
 }
 
 .fields {
@@ -76,9 +60,9 @@ textarea {
     border: none;
     outline: none;
     background: none;
-    font-size: 18px;
+    font-size: 14px;
     color: #555;
-    padding: 20px 10px 20px 5px;
+    padding: 15px 5px 5px 5px;
 }
 
 .username,
@@ -93,7 +77,6 @@ textarea {
 
 .favorite-genre,
 .biography {
-    font-family: 'Lato', 'sans-serif';
     color: #555;
     margin-bottom: 30px;
     text-align: center;
@@ -109,16 +92,14 @@ textarea {
     outline: none;
     border: none;
     cursor: pointer;
-    width: 100%;
-    height: 60px;
+    width: 125px;
+    height: 40px;
     border-radius: 30px;
-    font-size: 20px;
-    font-weight: 700;
-    font-family: 'Lato', sans-serif;
-    color: rgb(107, 106, 106);
+    font-size: 16px;
+    font-weight: 500;
     text-align: center;
     background: rgb(177, 230, 250);
-    box-shadow: 3px 3px 8px #b1b1b1 -3px -3px 8px #ffffff;
+    box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
 }
 
 .errorsContainer {
@@ -130,9 +111,32 @@ textarea {
 }
 
 .or {
-    font-family: 'Lucida Grande', Helvetica, Arial, sans-serif;
     color: white;
     opacity: 0.4;
-    margin-top: 425px;
-    margin-right: 10px;
+    margin-top: 200px;
+}
+
+textarea {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    resize: none;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 14px;
+    color: #555;
+    padding: 15px 5px 5px 5px;
+    border-radius: 25px;
+    box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
+    overflow: scroll;
+}
+
+select {
+    margin-top: 5px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    border-radius: 25px;
+    height: 0.75cm;
+    width: 2.5cm;
+    padding-left: 0.6cm;
+    box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
 }
