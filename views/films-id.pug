@@ -43,7 +43,6 @@ block content
           div= `- ${review.User.username}`
           div -----------
     .reviewContainer
-<<<<<<< HEAD
       if authenticated
         if !userReview
           form.review-form(action=`/films/${film.id}/reviews/new` method='POST')
@@ -58,17 +57,3 @@ block content
             input(type='hidden' name='userId' value=user.id)
             button.delete-review-button(type='submit') DELETE YOUR REVIEW
 
-=======
-      if !userReview
-        form.review-form(action=`/films/${film.id}/reviews/new` method='POST')
-          input(type='hidden' name='_csrf' value=token)
-          textarea(class="reviewText" name='review' placeholder= 'LEAVE A REVIEW')
-          div
-          button.submit-review-button(type='submit' data-filmid= film.id data-username= user.username) SUBMIT YOUR REVIEW
-      else if userReview
-        form.delete-review-form(action=`./${film.id}/review/delete` method='POST')
-          input(type='hidden' name='_csrf' value=token)
-          input(type='hidden' name='filmId' value=film.id)
-          input(type='hidden' name='userId' value=user.id)
-          button.delete-review-button(type='submit') DELETE YOUR REVIEW
->>>>>>> main
