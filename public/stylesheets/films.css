@@ -46,6 +46,10 @@
     color: #555;
 }
 
+.text:hover {
+  cursor: pointer;
+}
+
 .submit-review-button,
 .delete-review-button {
     width: 200px;
