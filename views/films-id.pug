@@ -10,12 +10,12 @@ block content
   .filmContainer
     .filmContents
       h1= film.title
-    .filmContents 
+    .filmContents
       img.filmPoster(src= film.posterPath)
       if authenticated
       if thumbsUp === null
         div
-          div(class="text thumbs-up-btn" id="liked" data-filmid= film.id data-userid= user.id) Like 
+          div(class="text thumbs-up-btn" id="liked" data-filmid= film.id data-userid= user.id) Like
       else
         div
           div(class="text thumbsed-up-btn" id="liked" data-filmid= film.id data-userid= user.id) Liked
@@ -25,6 +25,8 @@ block content
       div= `Release Date: ${film.releaseDate}`
     .filmContents
       div= film.Genre.name
+    .filmContents
+      div= film.director
     if authenticated
   .reelContainer
     form(action=`./${film.id}/reel` method='POST')
@@ -53,4 +55,4 @@ block content
           input(type='hidden' name='filmId' value=film.id)
           input(type='hidden' name='userId' value=user.id)
           button.delete-review-button(type='submit') DELETE YOUR REVIEW
-    
+
