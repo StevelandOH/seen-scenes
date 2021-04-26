@@ -163,10 +163,14 @@ router.post('/login/demo-user', asyncHandler( async(req, res) => {
   req.session.save(() => res.redirect(`/`));
 }))
 
+
+
 router.post('/logout', (req, res) => {
     logoutUser(req, res);
-    res.redirect('/');
+    req.session.save(() => res.redirect(`/`));
 });
+
+
 
 router.get(
     '/:id(\\d+)',
