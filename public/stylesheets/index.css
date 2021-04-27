@@ -8,8 +8,7 @@ h1 {
 
 body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background-color: #4f4d4d;
-    background-image: url('./img/Endless-Constellation\ \(1\).svg');
+    background-color: white;
     color: lightgrey;
 }
 
@@ -145,8 +144,19 @@ select {
 }
 
 .search {
-    width: 300px;
-    text-align: center;
+    max-width: 390px;
+    min-width: 300px;
+    text-align: left;
     padding: 0.8rem;
     margin-bottom: 0;
+    border-radius: 0px;
+    border: 1px solid #333333;
+    height: 25px;
+    background-color: white;
+    color: #333333;
+    box-shadow: none;
+}
+
+.search:focus {
+    outline: none;
 }
