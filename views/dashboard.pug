@@ -5,24 +5,55 @@ append head
   link(rel="stylesheet" href="/stylesheets/index.css")
   script(src="/javascripts/index.js" type="module" defer)
 
+//- block content
+//-   body
+
+//-   div(class="content")
+
+//-     div(class="username-div")= user.username
+    
+//-     div(class="star")
+
+//-     div(class="info")
+//-       div(class="biography-div")
+//-         p(class="bio-header") A little bit about me ...
+//-         p(class="biography-info")= user.biography
+//-         div(class="favorite-genre-div")
+//-           div=`Favorite Genre:  ${user.Genre.name}`
+//-     div(class="watched" onclick=`location.href='/users/${user.id}/reels'`) Watched →
+//-     div(class="filmContainer")
+//-       div
+//-         each film in watchedReel.Films
+//-           a(href=`/films/${film.id}`)
+//-             img.filmPoster(src=film.posterPath)
+
+
 block content
-  body
+  body 
 
-  div(class="content")
+  div(class="profile")
 
-    div(class="username-div")= user.username
+    div(class="profile-main")
+      div(class="profile-header")
+        img(class="profile-img" src="https://st3.depositphotos.com/4111759/13425/v/600/depositphotos_134255534-stock-illustration-headshot-male-default-profile-gray.jpg")
 
-    div(class="star")
+        div(class="profile-description")
+          div(class="profile-name") Demo
 
-    div(class="info")
-      div(class="biography-div")
-        p(class="bio-header") A little bit about me ...
-        p(class="biography-info")= user.biography
-        div(class="favorite-genre-div")
-          div=`Favorite Genre:  ${user.Genre.name}`
-    div(class="watched" onclick=`location.href='/users/${user.id}/reels'`) Watched →
-    div(class="filmContainer")
-      div
-        each film in watchedReel.Films
-          a(href=`/films/${film.id}`)
-            img.filmPoster(src=film.posterPath)
+          div(class="profile-section")
+            div(class="profile-header-title top-header") Favorite Genre
+            div(class="profile-header-text")= user.Genre.name
+
+          div(class="profile-section")
+            div(class="profile-header-title") Activity 
+            div(class="profile-header-text")= user.createdAt
+
+          div(class="profile-section")
+            div(class="profile-header-title") About Me
+            div(class="profile-header-text")= user.biography
+
+      div(class="profile-reels profile-header-title")= `${user.username}'s Reels`
+
+      div(class="profile-watched") watched movies
+
+    div(class="profile-side") sidebar
