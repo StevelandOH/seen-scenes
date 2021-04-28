@@ -51,6 +51,7 @@ h1 {
     -ms-user-select: none;
     user-select: none;
     /* min-width: 1440px; */
+    flex-wrap: nowrap;
 }
 
 .navbar-logo-img {
@@ -132,4 +133,11 @@ h1 {
     100% {
         transform: scale(1, 1) translateY(0);
     }
+}
+
+
+.footer {
+    height: 200px;
+    background-color: rgb(244,241,234);
+    width: 100%;
 }

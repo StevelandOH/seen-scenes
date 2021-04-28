@@ -38,7 +38,7 @@ block content
         img(class="profile-img" src="https://st3.depositphotos.com/4111759/13425/v/600/depositphotos_134255534-stock-illustration-headshot-male-default-profile-gray.jpg")
 
         div(class="profile-description")
-          div(class="profile-name") Demo
+          div(class="profile-name")= user.username
 
           div(class="profile-section")
             div(class="profile-header-title top-header") Favorite Genre
@@ -46,14 +46,34 @@ block content
 
           div(class="profile-section")
             div(class="profile-header-title") Activity 
-            div(class="profile-header-text")= user.createdAt
+            div(class="profile-header-text")= `Joined ${user.createdAt.toDateString()}`
 
           div(class="profile-section")
             div(class="profile-header-title") About Me
             div(class="profile-header-text")= user.biography
 
-      div(class="profile-reels profile-header-title")= `${user.username}'s Reels`
+      div(class="profile-reels profile-header-title")= `${user.username}'s Watched Movies`
+      div(class="profile-films")
+        each film in watchedReel.Films
+          div(class="profile-film")
+            div(class="profile-film-header-div")
+              div(class="profile-film-header profile-header-title")
+                div(class="prof-film-head-text first")= user.username
+                div(class="prof-film-head-text second")= ` has watched`
+              div(class="prof-film-header-reel prof-film-head-text" onclick=`location.href='/users/${user.id}/reels'`) view reel
+            div(class="profile-film-content")
+              a(href=`/films/${film.id}`)
+                img(class="filmPoster profile-film-poster" src=film.posterPath)
+              div(class="profile-film-content-text")
+                div(class="content-text-title" onclick=`location.href='/films/${film.id}'`)= `${film.title} (realeased ${film.releaseDate})`
+                div(class="content-text-director")= `directed by ${film.director}`
+            div= `${film.createdAt.toDateString()} ${film.createdAt.toLocaleTimeString()}`
 
-      div(class="profile-watched") watched movies
-
-    div(class="profile-side") sidebar
+    div(class="profile-side")
+      div(class="profile-header-title profile-reel")
+        div(class="side-header")
+          div(class="side-header-title")= `${user.username}'s reels`
+          div(class="side-header-edit" onclick=`location.href='/users/${user.id}/reels'`) edit
+      div(class="side-header-reels")
+        each reel in reels
+          div(class="side-header-reel" onclick=`location.href='/users/${user.id}/reels'`)= `${reel.name}`
