@@ -44,18 +44,18 @@ block content
                 .labels Confirm Password
                 .password
                   input(type='password' name='confirmPassword' class='pass-input' )
+                .button 
+                    button.register-button(type="submit") Sign up 
                 .optional optional
                 .labels Quick Bio
                 .biography 
                   textarea(name="biography" cols="50" rows="5") 
-                .labels Go-To Genre
                 .favorite-genre
-                  div
+                  .labels.genre Go-To Genre
                     select(name="genreId")
                       each genre in genres 
                           option(value=genre.id)=genre.name 
-                .button 
-                    button.register-button(type="submit") 🎥
+                
     
           
 
