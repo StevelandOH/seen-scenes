@@ -87,7 +87,7 @@ router.post(
             req.session.save(() => res.redirect(`/films`));
         } else {
             const errors = validatorErrors.array().map((error) => error.msg);
-            res.render('register', {
+            res.render('index', {
                 genres,
                 title: 'Register',
                 user,
@@ -155,22 +155,22 @@ router.post(
     })
 );
 
-router.post('/login/demo-user', asyncHandler( async(req, res) => {
+router.post(
+    '/login/demo-user',
+    asyncHandler(async (req, res) => {
+        const user = await User.findOne({
+            where: { email: 'demouser@gmail.com' },
+        });
 
-  const user = await User.findOne({ where: { email:"demouser@gmail.com" } });
-
-  loginUser(req, res, user);
-  req.session.save(() => res.redirect(`/`));
-}))
-
-
+        loginUser(req, res, user);
+        req.session.save(() => res.redirect(`/`));
+    })
+);
 
 router.post('/logout', (req, res) => {
     logoutUser(req, res);
     req.session.save(() => res.redirect(`/`));
 });
-
-
 
 router.get(
     '/:id(\\d+)',
@@ -186,17 +186,22 @@ router.get(
             limit: 8,
         });
         console.log(watchedReel);
-        console.log(watchedReel.Film)
+        console.log(watchedReel.Film);
 
         const reels = await Reel.findAll({
             where: { userId: id },
             include: Film,
         });
-        
+
         // console.log("_____________________", user.createdAt.getMonth())
         // const films = await Film.findAll({where:{id:FilmReel.filmId}});
 
-        res.render('dashboard', { title: 'Dashboard', user, watchedReel, reels }); //maybe add <username>'s Dashboard films <---
+        res.render('dashboard', {
+            title: 'Dashboard',
+            user,
+            watchedReel,
+            reels,
+        }); //maybe add <username>'s Dashboard films <---
     })
 );
 

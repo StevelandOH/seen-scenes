@@ -16,9 +16,9 @@ router.get(
         const genres = await Genre.findAll();
         const users = User.build();
         if (!res.locals.authenticated) {
-          res.render('index', { genres, users, token: req.csrfToken() });
+            res.render('index', { genres, users, token: req.csrfToken() });
         } else {
-          res.redirect(`/users/${req.session.auth.userId}`)
+            res.redirect(`/users/${req.session.auth.userId}`);
         }
     })
 );
@@ -87,7 +87,7 @@ router.post(
             req.session.save(() => res.redirect(`/films`));
         } else {
             const errors = validatorErrors.array().map((error) => error.msg);
-            res.render('register', {
+            res.render('index', {
                 genres,
                 user,
                 errors,
