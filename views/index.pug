@@ -3,14 +3,12 @@ include utils.pug
 
 append head
   link(rel="stylesheet" href="/stylesheets/index.css")
-  link(rel="stylesheet" href="/stylesheets/indexForms.css")
+
   script(src="/javascripts/index.js" type="module" defer)
 
 block content
   body
   .container 
-    if errors
-      +validationErrorSummary(errors)
     div.registerContainer
       div.register
         .signupTitle Sign up for SeenScenes 
@@ -27,6 +25,8 @@ block content
           div
             a.linkedLink(href="https://www.linkedin.com/in/matthew-johnston-9b6bb3181/")   
               button.mb Matthew Johnston
+        if errors
+          +validationErrorSummary(errors)
         .actFormContainer 
           .actFormTitle Sign Up with Email and Choose a Username
           form(action="/users/register" method="post")
@@ -46,7 +46,7 @@ block content
                   input(type='password' name='confirmPassword' class='pass-input' )
                 .submitContainer
                   .button 
-                      button.register-button(type="submit") Sign up 
+                    button.register-button(type="submit") Sign up 
                   .already Already a member?
                   a.signInLink(href='/login') Sign in
                 .optional optional
