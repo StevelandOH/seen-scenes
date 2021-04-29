@@ -41,44 +41,59 @@ h1 {
 
 .navbar {
     display: flex;
-    background-color: rgba(28, 28, 28, 0.8);
+    background-color: rgb(244,241,234);
     height: auto;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 10px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    /* min-width: 1440px; */
+    flex-wrap: nowrap;
 }
 
+.navbar-logo-img {
+    max-height: 40px;
+    cursor: pointer;
+    margin: 0px 20px;
+}
+
+
+
 .btn {
-    line-height: 50px;
+    line-height: 40px;
     cursor: pointer;
     font-size: large;
-    color: lightgray;
-    margin: 0px 20px;
+    color: #382110;
+    background-color: #f4f1ea;
+    font-family: 'Lato';
+    padding: 0px 30px;
+    min-width: 100px;
 }
 
 .btn:hover {
     box-sizing: border-box;
-    color: rgb(129, 149, 156);
+    background-color: #382110;
+    color: white;
     /* border-bottom: solid lightblue; */
-    box-shadow: 0 4px 1px -2px lightblue;
+    /* box-shadow: 0 4px 1px -2px lightblue; */
 }
 
 .controls {
     display: flex;
     box-sizing: border-box;
     height: auto;
-    margin-right: 5px;
+    margin: 0px 20px;
 }
 
 .logout-btn {
-    color: lightblue;
-    line-height: 50px;
+    /* color: lightblue;
+    line-height: 40px;
     cursor: pointer;
     font-size: large;
-    margin: 0px 20px;
+    margin: 0px 20px; */
 }
 
 .logout-div:hover {
@@ -118,4 +133,11 @@ h1 {
     100% {
         transform: scale(1, 1) translateY(0);
     }
+}
+
+
+.footer {
+    height: 200px;
+    background-color: rgb(244,241,234);
+    width: 100%;
 }

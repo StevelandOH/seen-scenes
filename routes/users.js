@@ -183,12 +183,20 @@ router.get(
                 name: 'Watched',
             },
             include: Film,
-            limit: 10,
+            limit: 8,
         });
         console.log(watchedReel);
+        console.log(watchedReel.Film)
+
+        const reels = await Reel.findAll({
+            where: { userId: id },
+            include: Film,
+        });
+        
+        // console.log("_____________________", user.createdAt.getMonth())
         // const films = await Film.findAll({where:{id:FilmReel.filmId}});
 
-        res.render('dashboard', { title: 'Dashboard', user, watchedReel }); //maybe add <username>'s Dashboard films <---
+        res.render('dashboard', { title: 'Dashboard', user, watchedReel, reels }); //maybe add <username>'s Dashboard films <---
     })
 );
 
