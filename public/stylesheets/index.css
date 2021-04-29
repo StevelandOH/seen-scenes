@@ -20,11 +20,13 @@ body {
 }
 
 .registerContainer {
-    width: 100vw;
+    width: 75%;
     display: flex;
-    margin-bottom: 50px;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
     color: #555;
+    border-radius: 5px;
 }
 
 .loginContainer {
@@ -34,13 +36,34 @@ body {
     color: #555;
 }
 
+.container {
+    margin-top: -10px;
+    background-color: rgb(235, 233, 218);
+    display: flex;
+    justify-content: center;
+}
+
 .register {
+    width: 600px;
+    border: 1px solid rgba(128, 128, 128, 0.8);
     text-align: center;
-    width: 430px;
-    height: 750px;
-    padding: 5px 35px 35px 35px;
-    border-radius: 40px;
+    padding: 20px;
+    border-radius: 5px;
     background: rgba(255, 255, 255, 0.9);
+}
+
+.actFormContainer {
+    margin: 20px;
+}
+
+.actFormTitle {
+    font-size: 14pt;
+    font-weight: bold;
+}
+
+form {
+    display: flex;
+    justify-content: center;
 }
 
 .login {
@@ -52,24 +75,17 @@ body {
     background: rgba(255, 255, 255, 0.9);
 }
 
+.labels {
+    margin: 15px 0 2px 0;
+    font-weight: bold;
+    font-size: 9pt;
+}
+
 .fields {
-    width: 100%;
-    padding: 20px 5px 5px 5px;
+    text-align: left;
+    width: 300px;
 }
 
-.fields input {
-    border: none;
-    outline: none;
-    background: none;
-    font-size: 14px;
-    color: #555;
-    padding: 15px 5px 5px 5px;
-}
-
-.username,
-.password,
-.confirm-password,
-.email,
 .search {
     text-align: center;
     margin-bottom: 30px;
@@ -159,4 +175,48 @@ select {
 
 .search:focus {
     outline: none;
+}
+
+.linkedIn {
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 20px;
+    margin: 10px 50px 10px 50px;
+}
+
+.sb,
+.jb,
+.mb {
+    border-radius: 3px;
+    margin: 5px;
+    height: 40px;
+    width: 250px;
+}
+
+.sb {
+    color: white;
+    background-color: rgb(61, 88, 146);
+    border: none;
+}
+
+.jb {
+    border: 0.5px solid gray;
+    background-color: rgb(241, 204, 104);
+}
+
+.mb {
+    border: 0.5px solid gray;
+    background-color: white;
+}
+
+.signupTitle {
+    font-size: 22pt;
+}
+
+.signupPara1 {
+    margin-top: 15px;
+}
+
+.signupPara2 {
+    margin-bottom: 15px;
 }
