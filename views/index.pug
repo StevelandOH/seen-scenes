@@ -44,8 +44,11 @@ block content
                 .labels Confirm Password
                 .password
                   input(type='password' name='confirmPassword' class='pass-input' )
-                .button 
-                    button.register-button(type="submit") Sign up 
+                .submitContainer
+                  .button 
+                      button.register-button(type="submit") Sign up 
+                  .already Already a member?
+                  a.signInLink(href='/login') Sign in
                 .optional optional
                 .labels Quick Bio
                 .biography 
@@ -55,7 +58,13 @@ block content
                     select(name="genreId")
                       each genre in genres 
                           option(value=genre.id)=genre.name 
-                
+          .notice 
+            .start By clicking 'Sign up' I agree to the SeenScenes
+            a.terms(href='https://legaltemplates.net/wp-content/uploads/2016/07/Soul-Bill-of-Sale-Are-You-Sure-You-Want-to-Do-This.docx') Terms of Service 
+            .end and confirm that I am at least 13 years of
+          .notice2
+            .start age.
+            a.privacy(href='https://www.beaconseniornews.com/2020/03/03/327977/you-have-zero-privacy-get-over-it-') Read our Privacy Policy.
     
           
 
