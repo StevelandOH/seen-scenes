@@ -1,19 +1,21 @@
 .filmContainer {
-    margin: 10px auto;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 400px;
-    text-align: center;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    width: auto;
+    margin: 20px;
+    font-size: 12px;
+    min-height: 400px;
+    background: #FFFFFF;
+    text-align: left;
+    border-bottom: solid;
+    padding-bottom: 1rem;
 }
 
 .filmsContainer {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
+    display: grid;
+    margin: 1rem;
+    padding: 0.5rem;
+
 }
 
 .filmContents {
@@ -32,10 +34,6 @@
     transform: scale(1.05, 1.05);
 }
 
-.reelContainer {
-    text-align: right;
-    padding: 10px;
-}
 
 .like-btn-text {
     width: 100px;
@@ -82,15 +80,13 @@
     text-align: center;
 }
 
-.reelContainer,
-.review {
-    text-align: right;
-    padding: 20px;
-    width: 900px;
+.reelContainer {
+    display: flex;
+    justify-content: center;
 }
 
 .reviewText {
-    width: 350px;
+    width: 70%;
     text-align: center;
     background-color: white;
 }
@@ -98,4 +94,44 @@
 .existingReviews {
     padding: 5px;
     width: 800px;
+    margin: auto;
+}
+
+.moviesContainer {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.poster {
+    height: 22rem;
+    margin-bottom: 1rem;
+}
+
+.filmIdPoster {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.filmContents {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.review {
+    display: grid;
+}
+
+.reviewContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 1.5rem;
+}
+
+.review-form{
+    flex-grow: 1;
+    text-align: center;
 }

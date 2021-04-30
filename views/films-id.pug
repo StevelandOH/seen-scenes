@@ -8,10 +8,8 @@ append head
 
 block content
   .filmContainer
-    .filmContents
-      h1= film.title
-    .filmContents
-      img.filmPoster(src= film.posterPath)
+    .filmIdPoster
+      img.poster(src= film.posterPath)
       if authenticated
         if thumbsUp === null
           div
@@ -20,12 +18,10 @@ block content
           div
             div(class="like-btn-text thumbsed-up-btn" id="liked" data-filmid= film.id data-userid= user.id) Liked
     .filmContents
+      h1= film.title
       div= film.description
-    .filmContents
       div= `Release Date: ${film.releaseDate}`
-    .filmContents
       div= film.Genre.name
-    .filmContents
       div= film.director
     if authenticated
       .reelContainer
@@ -36,12 +32,6 @@ block content
               option(value=reel.id)= reel.name
           button.add(type='submit') ADD TO REEL
   .review
-    .existingReviews
-      each review in reviews
-        if review.review
-          div= review.review
-          div= `- ${review.User.username}`
-          div -----------
     .reviewContainer
       if authenticated
         if !userReview
@@ -56,3 +46,9 @@ block content
             input(type='hidden' name='filmId' value=film.id)
             input(type='hidden' name='userId' value=user.id)
             button.delete-review-button(type='submit') DELETE YOUR REVIEW
+    .existingReviews
+      each review in reviews
+        if review.review
+          div= review.review
+          div= `- ${review.User.username}`
+          div -----------

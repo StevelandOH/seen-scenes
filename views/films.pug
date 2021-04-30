@@ -33,9 +33,12 @@ block content
                     p= movie.releaseYear
 
       else
-        each film in films
-          div.filmBlock
-            a(href=`/films/${film.id}`)
-              img.filmPoster(src= film.posterPath)
+        .moviesHeader
+          h1 New Releases
+        .moviesContainer
+          each film in films
+            div.filmBlock
+              a(href=`/films/${film.id}`)
+                img.filmPoster(src= film.posterPath)
 
 
