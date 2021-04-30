@@ -1,23 +1,65 @@
 .filmContainer {
-    margin: 10px auto;
-    position: relative;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    flex-direction: row;
+    align-items: flex-start;
+    margin: 15px 50px 0 50px;
+    font-size: 12px;
+    background: #ffffff;
+    padding: 50px;
+    width: 750px;
+}
+
+.filmTitle {
+    margin: 10px 0 0 35px;
+    font-size: 26pt;
+    color: #555;
+    font-weight: bold;
+}
+
+.filmDirector {
+    color: #555;
+    margin: 25px 0 10px 25px;
+    font-size: 14pt;
+}
+
+.filmDescription {
+    color: #555;
+    margin: 50px 0 10px 25px;
+    font-size: 14pt;
     width: 400px;
-    text-align: center;
+}
+
+.releaseDate {
+    color: #555;
+    margin: 5px 0 10px 0;
+    font-size: 14pt;
+}
+
+.filmGenre {
+    color: #555;
+    margin: 5px 0 10px 25px;
+    font-size: 14pt;
+}
+
+.types {
+    width: 400px;
+    padding-top: 25px;
+    margin: 75px 0 25px 25px;
+    border-top: 1px solid rgba(204, 198, 184);
+    display: flex;
+    flex-direction: row;
 }
 
 .filmsContainer {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
+    display: grid;
+    margin: 1rem;
+    padding: 0.5rem;
 }
 
 .filmContents {
-    padding: 10px;
+    display: flex;
+    flex-direction: row-reverse;
+    width: 500px;
 }
 
 .filmPoster {
@@ -31,19 +73,31 @@
     -webkit-transform: scale(1.05, 1.05);
     transform: scale(1.05, 1.05);
 }
-
-.reelContainer {
-    text-align: right;
+.delete-review-button,
+.submit-review-button {
+    margin: 10px 0 10px 0;
     padding: 10px;
+    font-size: 9pt;
+    width: 135px;
+    height: 40px;
+    text-align: center;
+    border-radius: 5px;
+    text-align: center;
+    border: 1px solid rgb(204, 198, 184);
+    background: rgb(241, 238, 228);
+    color: #555;
 }
 
 .like-btn-text {
-    width: 100px;
-    height: 20px;
+    padding: 10px;
+    font-size: 11pt;
+    width: 185px;
+    height: 40px;
     text-align: center;
-    border-radius: 30px;
+    border-radius: 5px;
     text-align: center;
-    background: rgb(177, 230, 250);
+    border: 1px solid rgb(204, 198, 184);
+    background: rgb(241, 238, 228);
     color: #555;
 }
 
@@ -51,25 +105,16 @@
     cursor: pointer;
 }
 
-.submit-review-button,
-.delete-review-button {
-    width: 200px;
-    height: 20px;
-    text-align: center;
-    border-radius: 30px;
-    text-align: center;
-    background: rgb(177, 230, 250);
-    color: #555;
-}
-
 .add {
-    width: 150px;
-    height: 20px;
+    width: 35px;
+    height: 35px;
     text-align: center;
-    border-radius: 30px;
     text-align: center;
-    background: rgb(177, 230, 250);
-    color: #555;
+    background-color: rgba(53, 143, 86, 0.8);
+    color: white;
+    font-size: 20pt;
+    border-radius: 0 5px 5px 0;
+    border: none;
 }
 
 .item {
@@ -77,25 +122,92 @@
 }
 
 .dropDown {
+    padding: 5px;
+    border: none;
+    margin-bottom: 10px;
+    color: white;
     width: 150px;
-    height: 20px;
+    height: 35px;
+    border-radius: 5px 0 0 5px;
     text-align: center;
+    background-color: rgba(53, 143, 86, 0.8);
 }
 
-.reelContainer,
-.review {
-    text-align: right;
-    padding: 20px;
-    width: 900px;
+.reelContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .reviewText {
-    width: 350px;
-    text-align: center;
-    background-color: white;
+    resize: none;
+    padding: 25px;
+    width: 710px;
+    height: 150px;
+    text-align: left;
+    background-color: rgba(241, 238, 228, 0.4);
+    border: 1px solid rgba(204, 198, 184, 0.7);
+    border-radius: 5px;
 }
 
 .existingReviews {
+    text-align: center;
+    margin: 25px 10px 10px 50px;
+    color: black;
     padding: 5px;
-    width: 800px;
+    width: 700px;
+    margin-bottom: 25px;
+}
+
+.moviesContainer {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.poster {
+    height: 22rem;
+    margin-bottom: 1rem;
+}
+
+.filmIdPoster {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.filmContents {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.review {
+    width: 750px;
+    padding: 25px 0 25px 50px;
+}
+
+.reviewTitle,
+.leaveTitle {
+    margin-top: 50px;
+    margin-left: 45px;
+    padding: 10px;
+    width: 715px;
+    text-align: left;
+    color: rgba(42, 25, 14, 0.7);
+    font-weight: bold;
+    font-size: 11pt;
+    border-bottom: 1px solid rgb(204, 198, 184);
+}
+
+.reviewContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.review-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
