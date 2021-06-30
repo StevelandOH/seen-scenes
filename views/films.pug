@@ -7,38 +7,49 @@ append head
   script(src="/javascripts/index.js" type="module" defer)
 
 block content
+  //- body
+  //-   h1
+  //-   div.filmsContainer
+  //-     if errors
+  //-       +validationErrorSummary(errors)
+  //-     else if newMoviesArray
+  //-       h1 Movies
+  //-       h2 Select a movie
+  //-       div
+  //-         each movie in newMoviesArray
+  //-           if movie.posterPath
+  //-             .filmBlock
+  //-               img.filmsPosters(src= `https://image.tmdb.org/t/p/w342/${movie.posterPath}` id= 'moviePoster')
+  //-               form(action="/films/newFilm" method="post")
+  //-                 input(type='hidden' name='_csrf' value=token)
+  //-                 input(type="hidden" name="title" value=movie.title)
+  //-                 input(type="hidden" name="id" value=movie.id)
+  //-                 input(type="hidden" name="description" value=movie.description)
+  //-                 input(type="hidden" name="releaseDate" value=movie.releaseDate)
+  //-                 input(type="hidden" name="posterPath" value=`https://image.tmdb.org/t/p/w342/${movie.posterPath}`)
+  //-                 input(type="hidden" name="genreId" value=movie.genreId)
+  //-                 button(type='submit' class="nav-button" id="addMovieButton")
+  //-                   p= movie.title
+  //-                   p= movie.releaseYear
+
+  //-     else
+  //-       .moviesHeader
+  //-         h1 New Releases
+  //-       .moviesContainer
+  //-         each film in films
+  //-           div.filmBlock
+  //-             a(href=`/films/${film.id}`)
+  //-               img.filmPoster(src= film.posterPath)
   body
-    h1
-    div.filmsContainer
+    div(class="browse-films")
       if errors
         +validationErrorSummary(errors)
       else if newMoviesArray
         h1 Movies
-        h2 Select a movie
-        div
-          each movie in newMoviesArray
-            if movie.posterPath
-              .filmBlock
-                img.filmsPosters(src= `https://image.tmdb.org/t/p/w342/${movie.posterPath}` id= 'moviePoster')
-                form(action="/films/newFilm" method="post")
-                  input(type='hidden' name='_csrf' value=token)
-                  input(type="hidden" name="title" value=movie.title)
-                  input(type="hidden" name="id" value=movie.id)
-                  input(type="hidden" name="description" value=movie.description)
-                  input(type="hidden" name="releaseDate" value=movie.releaseDate)
-                  input(type="hidden" name="posterPath" value=`https://image.tmdb.org/t/p/w342/${movie.posterPath}`)
-                  input(type="hidden" name="genreId" value=movie.genreId)
-                  button(type='submit' class="nav-button" id="addMovieButton")
-                    p= movie.title
-                    p= movie.releaseYear
+        h2 Start selecting movies to add to your reel
 
       else
-        .moviesHeader
-          h1 New Releases
-        .moviesContainer
-          each film in films
-            div.filmBlock
-              a(href=`/films/${film.id}`)
-                img.filmPoster(src= film.posterPath)
-
-
+        each film in films
+          div(class="browse-film")
+            a(href=`/films/${film.id}`)
+              img.filmPoster(src= film.posterPath)

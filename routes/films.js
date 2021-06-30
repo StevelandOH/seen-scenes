@@ -13,7 +13,7 @@ const csrfProtection = csrf({ cookie: true });
 router.get('/', asyncHandler(async (req, res) => {
 
   const films = await db.Film.findAll()
-
+  console.log("FILMS :::::::::::::::::::::::::::::::::::::::", films)
   res.render('films', { films })
 }))
 
@@ -112,7 +112,7 @@ router.post('/:id/reel', asyncHandler(async (req, res) => {
     await db.FilmReel.create({filmId, reelId, userId})
     res.redirect(`/films/${filmId}`)
   } else {
-    throw new Error ('Movie Already in Reel')
+    // throw new Error ('Movie Already in Reel')
   }
 }))
 
