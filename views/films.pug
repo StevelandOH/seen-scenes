@@ -41,15 +41,47 @@ block content
   //-             a(href=`/films/${film.id}`)
   //-               img.filmPoster(src= film.posterPath)
   body
-    div(class="browse-films")
-      if errors
-        +validationErrorSummary(errors)
-      else if newMoviesArray
-        h1 Movies
-        h2 Start selecting movies to add to your reel
+    div(class="browse")
+      div(class="browse-section")
+        div(class="browse-title") Movie Releases
+        div(class="browse-films")
+          if errors
+            +validationErrorSummary(errors)
+          else if newMoviesArray
+            h1 Movies
+            h2 Start selecting movies to add to your reel
 
-      else
-        each film in films
-          div(class="browse-film")
-            a(href=`/films/${film.id}`)
-              img.filmPoster(src= film.posterPath)
+          else
+
+            div(class="browse-action-films browse-row")
+              h1.genreHeader Action
+              div(class="genre-films")
+                each film in actionFilms
+                  div(class="browse-film")
+                    a(href=`/films/${film.id}`)
+                      img.film(src= film.posterPath)
+
+            div(class="browse-horror-films browse-row")
+              h1.genreHeader Horror
+              div(class="genre-films")
+                each film in horrorFilms
+                  div(class="browse-film")
+                    a(href=`/films/${film.id}`)
+                      img.film(src= film.posterPath)
+
+            div(class="browse-comedy-films browse-row")
+              h1.genreHeader Comedy
+              div(class="genre-films")
+                each film in comedyFilms
+                  div(class="browse-film")
+                    a(href=`/films/${film.id}`)
+                      img.film(src= film.posterPath)
+
+            div(class="browse-other-films browse-row")
+              h1.genreHeader Other
+              div(class="genre-films")
+                each film in otherFilms
+                  div(class="browse-film browse-row")
+                    a(href=`/films/${film.id}`)
+                      img.film(src= film.posterPath)
+      div(class="sidebar-section") SIDEBAR

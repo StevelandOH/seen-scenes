@@ -13,8 +13,22 @@ const csrfProtection = csrf({ cookie: true });
 router.get('/', asyncHandler(async (req, res) => {
 
   const films = await db.Film.findAll()
-  console.log("FILMS :::::::::::::::::::::::::::::::::::::::", films)
-  res.render('films', { films })
+  const actionFilms = films.filter((film)=> film.genreId == 28)
+  const comedyFilms = films.filter((film)=> film.genreId == 35)
+  const horrorFilms = films.filter((film)=> film.genreId == 27)
+  const dramaFilms = films.filter((film)=> film.genreId == 18)
+  const categorizedFilms = [28, 35, 27, 18]
+  const otherFilms = films.filter((film)=> !categorizedFilms.includes(film.genreId))
+
+  console.log(actionFilms)
+  res.render('films', {
+    films,
+    actionFilms,
+    dramaFilms,
+    comedyFilms,
+    horrorFilms,
+    otherFilms
+  })
 }))
 
 router.get('/:id', csrfProtection, asyncHandler(async (req, res) => {
@@ -112,7 +126,7 @@ router.post('/:id/reel', asyncHandler(async (req, res) => {
     await db.FilmReel.create({filmId, reelId, userId})
     res.redirect(`/films/${filmId}`)
   } else {
-    // throw new Error ('Movie Already in Reel')
+    throw new Error ('Movie Already in Reel')
   }
 }))
 
