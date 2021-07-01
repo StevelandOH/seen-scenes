@@ -43,7 +43,7 @@ block content
   body
     div(class="browse")
       div(class="browse-section")
-        div(class="browse-title") Movie Releases
+        div(class="browse-title") Movie Releases for You
         div(class="browse-films")
           if errors
             +validationErrorSummary(errors)
@@ -77,11 +77,18 @@ block content
                     a(href=`/films/${film.id}`)
                       img.film(src= film.posterPath)
 
-            div(class="browse-other-films browse-row")
-              h1.genreHeader Other
+            div(class="browse-drama-films browse-row")
+              h1.genreHeader Drama
               div(class="genre-films")
-                each film in otherFilms
-                  div(class="browse-film browse-row")
+                each film in dramaFilms
+                  div(class="browse-film")
                     a(href=`/films/${film.id}`)
                       img.film(src= film.posterPath)
-      div(class="sidebar-section") SIDEBAR
+
+      div(class="sidebar-section")
+        div(class="sidebar-section-header") Popular New Releases
+        div(class="genre-films")
+          each film in otherFilms
+            div(class="browse-film browse-row")
+              a(href=`/films/${film.id}`)
+                img.film(src= film.posterPath)

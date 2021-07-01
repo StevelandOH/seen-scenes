@@ -28,6 +28,39 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
+          title: 'Avengers: Endgame',
+          director: 'Anthony Russo',
+          description:
+            'After the devastating events of Avengers: Infinity War, the universe is in ruins due to the efforts of the Mad Titan, Thanos. With the help of remaining allies, the Avengers must assemble once more in order to undo \' actions and restore order to the universe once and for all, no matter what consequences may be in store.',
+          releaseDate: '2008-05-02',
+          genreId: 28,
+          posterPath: 'https://image.tmdb.org/t/p/original//or06FN3Dka5tukK1e9sl16pB3iy.jpg',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          title: 'Star Wars: The Rise of Skywalker',
+          director: 'James Cameron',
+          description:
+            'When it\'s discovered that the evil Emperor Palpatine did not die at the hands of Darth Vader, the rebels must race against the clock to find out his whereabouts Finn and Poe lead the Resistance to put a stop to the First Order\'s plans to form a new Empire, while Rey anticipates her inevitable confrontation with Kylo Ren.',
+          releaseDate: '1994-07-15',
+          genreId: 28,
+          posterPath: 'https://images.theposterdb.com/prod/public/images/posters/optimized/movies/166/LH7vU9aILnwPWHthSN2bqpUlOsM0gDkapQrVl2Fl.webp',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          title: 'Jurassic World',
+          director: 'James Cameron',
+          description:
+            'Located off the coast of Costa Rica, the Jurassic World luxury resort provides a habitat for an array of genetically engineered dinosaurs, including the vicious and intelligent Indominus rex. When the massive creature escapes, it sets off a chain reaction that causes the other dinos to run amok.',
+          releaseDate: '1994-07-15',
+          genreId: 28,
+          posterPath: 'https://images.theposterdb.com/prod/public/images/posters/optimized/movies/1956/rWn6Pwhqf6eujowKX3f6BuJkrdldlHyayDcEtIZb.webp',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
           title: 'Tropic Thunder',
           director: 'Ben Stiller',
           description:
@@ -46,6 +79,39 @@ module.exports = {
           releaseDate: '2009-10-08',
           genreId: 35,
           posterPath: 'https://theposterdb.com/api/assets/36533',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          title: 'Elf',
+          director: 'Ben Stiller',
+          description:
+            "When young Buddy falls into Santa's gift sack on Christmas Eve, he's transported back to the North Pole and raised as a toy-making elf by Santa's helpers. But as he grows into adulthood, he can't shake the nagging feeling that he doesn't belong. Buddy vows to visit Manhattan and find his real dad, a workaholic publisher",
+          releaseDate: '2003-08-13',
+          genreId: 35,
+          posterPath: 'https://image.tmdb.org/t/p/original//zDHFQmaxlTIJGQDfTrLTL9RK2tQ.jpg',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          title: 'Central Intelligence',
+          director: 'Ruben Fleischer',
+          description:
+            "After he reunites with an old pal through Facebook, a mild-mannered accountant is lured into the world of international espionage.",
+          releaseDate: '2018-10-08',
+          genreId: 35,
+          posterPath: 'https://image.tmdb.org/t/p/original//7Ou0TRJLi72AwLEUlo7Kym4XuNB.jpg',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          title: 'Shrek',
+          director: 'Ruben Fleischer',
+          description:
+            "The fairytale story of a large, strong, solitude-loving, intimidating ogre named Shrek, and his friends.",
+          releaseDate: '2001-10-08',
+          genreId: 35,
+          posterPath: 'https://image.tmdb.org/t/p/original//qNHZMe92A7Pyl46qUH29hVOtbSK.jpg',
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -72,6 +138,39 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
+          title: 'Saw',
+          director: 'Andy Muschietti',
+          description:
+            'Obsessed with teaching his victims the value of life, a deranged, sadistic serial killer abducts the morally wayward. Once captured, they must face impossible choices in a horrific game of survival. The victims must fight to win their lives back, or die trying.',
+          releaseDate: '1980-09-08',
+          genreId: 27,
+          posterPath: 'https://image.tmdb.org/t/p/original//pparEGTCxcTiImyVFoKD0LX11N8.jpg',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          title: 'Jaws',
+          director: 'Jordan Peele',
+          description:
+            "When an insatiable great white shark terrorizes the townspeople of Amity Island, the police chief, an oceanographer and a grizzled shark hunter seek to destroy the blood-thirsty beast.",
+          releaseDate: '1975-02-24',
+          genreId: 27,
+          posterPath: 'https://image.tmdb.org/t/p/original//s2xcqSFfT6F7ZXHxowjxfG0yisT.jpg',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          title: 'Us',
+          director: 'Jordan Peele',
+          description:
+            "Husband and wife Gabe and Adelaide Wilson take their kids to their beach house expecting to unplug and unwind with friends. But as night descends, their serenity turns to tension and chaos when some shocking visitors arrive uninvited.",
+          releaseDate: '2017-02-24',
+          genreId: 27,
+          posterPath: 'https://image.tmdb.org/t/p/original//ux2dU1jQ2ACIMShzB3yP93Udpzc.jpg',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
           title: 'Parasite',
           director: 'Bong Joon-ho',
           description:
@@ -84,6 +183,39 @@ module.exports = {
         },
         {
           title: 'Joker',
+          director: 'Todd Phillips',
+          description:
+            'During the 1980s, a failed stand-up comedian is driven insane and turns to a life of crime and chaos in Gotham City while becoming an infamous psychopathic crime figure.',
+          releaseDate: '2019-10-04',
+          genreId: 18,
+          posterPath: 'https://theposterdb.com/api/assets/14070',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          title: 'Dunkirk',
+          director: 'Bong Joon-ho',
+          description:
+            "In May 1940, Germany advanced into France, trapping Allied troops on the beaches of Dunkirk. Under air and ground cover from British and French forces, troops were slowly and methodically evacuated from the beach using every serviceable naval and civilian vessel that could be found.",
+          releaseDate: '2019-11-01',
+          genreId: 18,
+          posterPath: 'https://theposterdb.com/api/assets/47915',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          title: '1917',
+          director: 'Todd Phillips',
+          description:
+            'During the 1980s, a failed stand-up comedian is driven insane and turns to a life of crime and chaos in Gotham City while becoming an infamous psychopathic crime figure.',
+          releaseDate: '2019-10-04',
+          genreId: 18,
+          posterPath: 'https://image.tmdb.org/t/p/original//iZf0KyrE25z1sage4SYFLCCrMi9.jpg',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          title: 'Joker3',
           director: 'Todd Phillips',
           description:
             'During the 1980s, a failed stand-up comedian is driven insane and turns to a life of crime and chaos in Gotham City while becoming an infamous psychopathic crime figure.',

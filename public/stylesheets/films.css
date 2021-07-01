@@ -246,7 +246,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-width: 40vw;
+  min-width: 29vw;
+  margin-right: 20px;
 }
 
 .genre-films {
@@ -255,7 +256,7 @@
 }
 
 .film {
-  height: 9rem;
+  height: 8rem;
   /* border-radius: 30px; */
 }
 
@@ -275,6 +276,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin-bottom: 15px;
 }
 
 .genreHeader {
@@ -286,6 +288,29 @@
   color: rgb(2, 2, 2);
   font-size: 25px;
   font-family: 'Merriweather', Georgia, 'Times New Roman', Times, serif;
+  /* align-self: flex-start; */
+  text-align: left;
+  margin-bottom: 17px;
+  border-bottom: 1px solid lightgray;
+  width: 100%;
+  padding-left: 8px;
+  padding-bottom: 4px;
+}
+
+.sidebar-section-header {
+  color: rgb(2, 2, 2);
+  font-size: 15px;
+  /* align-self: flex-start; */
+  text-align: left;
+  margin-bottom: 17px;
+  border-bottom: 1px solid lightgray;
+  width: 100%;
+  padding-left: 8px;
+  padding-bottom: 4px;
+}
+
+.sidebar-section {
+  width: 280px;
 }
 
 .browse {
