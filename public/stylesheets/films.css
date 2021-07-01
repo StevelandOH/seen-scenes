@@ -244,15 +244,24 @@
 .browse-section {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   min-width: 29vw;
-  margin-right: 20px;
+  margin-right: 50px;
 }
 
 .genre-films {
   display: flex;
   flex-direction: row;
+  /* flex-wrap: wrap;
+  max-width: 280px; */
+}
+
+.genre-films-side {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 280px;
 }
 
 .film {
@@ -310,7 +319,7 @@
 }
 
 .sidebar-section {
-  width: 280px;
+  max-width: 280px;
 }
 
 .browse {
