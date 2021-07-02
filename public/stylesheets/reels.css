@@ -68,3 +68,104 @@
     background: rgb(177, 230, 250);
     box-shadow: 3px 3px 8px #b1b1b1 -3px -3px 8px #ffffff;
 }
+
+.film {
+  max-height: 80px;
+  margin: 0px 4px;
+}
+
+.reels-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.reels-section {
+  width: 625px;
+  margin: 0px 30px;
+}
+
+.reels-head {
+  color: #382110;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 13px;
+  text-transform: uppercase;
+  width: 100%;
+  text-align: left;
+  padding: 3px;
+  border-bottom: 1px solid rgb(199, 198, 198);
+}
+
+.reels-reels {
+  padding: 5px;
+}
+
+.reel {
+  border-bottom: 1px solid rgb(199, 198, 198);
+  margin-bottom: 5px;
+}
+
+.reel-title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  color: black;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.reel-add {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  color: rgb(94, 94, 94);
+  font-weight: 100;
+}
+
+.reel-add:hover {
+  color: #797878;
+  cursor: pointer;
+}
+
+.reel-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.reel-empty {
+  font-weight: 100;
+  color: black;
+  padding: 0px 0px 5px 8px;
+  font-size: 12px;
+}
+
+.sidebar-header {
+  color: black;
+  border-bottom: 1px solid rgb(199, 198, 198);
+  width: 100%;
+  text-align: left;
+  padding: 3px;
+}
+
+.sidebar-text {
+  color: #272726;
+  font-size: 14px;
+}
+
+.reels-side {
+  width: 270px;
+}
+
+.side-content {
+  padding: 3px 0px 5px 5px;
+}
+
+.side-input {
+  width: 100%;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 5px;
+}
