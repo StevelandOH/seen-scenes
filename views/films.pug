@@ -8,37 +8,46 @@ append head
 
 block content
   body
-    h1
-    div.filmsContainer
-      if errors
-        +validationErrorSummary(errors)
-      else if newMoviesArray
-        h1 Movies
-        h2 Select a movie
-        div
-          each movie in newMoviesArray
-            if movie.posterPath
-              .filmBlock
-                img.filmsPosters(src= `https://image.tmdb.org/t/p/w342/${movie.posterPath}` id= 'moviePoster')
-                form(action="/films/newFilm" method="post")
-                  input(type='hidden' name='_csrf' value=token)
-                  input(type="hidden" name="title" value=movie.title)
-                  input(type="hidden" name="id" value=movie.id)
-                  input(type="hidden" name="description" value=movie.description)
-                  input(type="hidden" name="releaseDate" value=movie.releaseDate)
-                  input(type="hidden" name="posterPath" value=`https://image.tmdb.org/t/p/w342/${movie.posterPath}`)
-                  input(type="hidden" name="genreId" value=movie.genreId)
-                  button(type='submit' class="nav-button" id="addMovieButton")
-                    p= movie.title
-                    p= movie.releaseYear
+    div(class="browse")
+      div(class="browse-section")
+        div(class="browse-title") Movie Releases for You
+        div(class="browse-films")
+            div(class="browse-action-films browse-row")
+              h1.genreHeader Action
+              div(class="genre-films")
+                each film in actionFilms
+                  div(class="browse-film")
+                    a(href=`/films/${film.id}`)
+                      img.film(src= film.posterPath)
 
-      else
-        .moviesHeader
-          h1 New Releases
-        .moviesContainer
-          each film in films
-            div.filmBlock
+            div(class="browse-horror-films browse-row")
+              h1.genreHeader Horror
+              div(class="genre-films")
+                each film in horrorFilms
+                  div(class="browse-film")
+                    a(href=`/films/${film.id}`)
+                      img.film(src= film.posterPath)
+
+            div(class="browse-comedy-films browse-row")
+              h1.genreHeader Comedy
+              div(class="genre-films")
+                each film in comedyFilms
+                  div(class="browse-film")
+                    a(href=`/films/${film.id}`)
+                      img.film(src= film.posterPath)
+
+            div(class="browse-drama-films browse-row")
+              h1.genreHeader Drama
+              div(class="genre-films")
+                each film in dramaFilms
+                  div(class="browse-film")
+                    a(href=`/films/${film.id}`)
+                      img.film(src= film.posterPath)
+
+      div(class="sidebar-section")
+        div(class="sidebar-section-header") Popular New Releases
+        div(class="genre-films-side")
+          each film in otherFilms
+            div(class="browse-film browse-row")
               a(href=`/films/${film.id}`)
-                img.filmPoster(src= film.posterPath)
-
-
+                img.film(src= film.posterPath)

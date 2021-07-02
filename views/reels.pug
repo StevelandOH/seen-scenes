@@ -7,25 +7,33 @@ append head
   script(src="/javascripts/index.js" type="module" defer)
 
 
-block content 
+block content
   body
-    .reelContainer
-      each reel in reels 
-        div.reelTitle
-          h2= reel.name
-            div.filmContainer
-              each film in reel.Films 
-                a(href=`/films/${film.id}`)
-                  img.filmPoster(src= film.posterPath)
-    .newReel 
-      form(action=`/users/${user.id}/reels` method="post")
-        .fields
-          input(class="input" type='text' name='name' placeholder='...add a new reel')
+    div(class="reels-page")
 
-        div
-          button(type="submit" class='newReelButton') Let's Do It!
+      div(class="reels-section")
+        div(class="reels-head") demouser's reels
+        div(class="reels-reels")
+          each reel in reels
+            div(class="reel")
+              div(class="reel-top")
+                h2(class="reel-title")= `${reel.name} Reel`
+                div(class="reel-add" onclick=`location.href='/films'`) add to reel
+              div
+                if (reel.Films.length)
+                  each film in reel.Films
+                    a(href=`/films/${film.id}`)
+                      img.film(src= film  .posterPath)
+                else
+                  div(class="reel-empty") you don't have any movies in this reel yet
 
+      div(class="reels-side")
+        div(class="sidebar-header") Create a New Reel
+        div(class="sidebar-text side-content") Want to track your favorite movies, or maybe action movies you want to watch, try creating a new reel!
+        div(class="sidebar-form")
+          form(action=`/users/${user.id}/reels` method="post")
+            div
+              input(class="side-input" type='text' name='name' placeholder='...add a new reel')
 
-    
-
-
+            div
+              button(type="submit" class='side-button') Let's Do It

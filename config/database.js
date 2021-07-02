@@ -4,9 +4,9 @@ const {
 
 module.exports = {
 	development: {
-		username,
-		password,
-		database,
+		username: "seen_scenes_app",
+		password: "password",
+		database: "seen_scenes_development",
 		host,
 		dialect: 'postgres',
 	},
