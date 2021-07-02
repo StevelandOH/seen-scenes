@@ -1,5 +1,5 @@
 extends layout
-include utils.pug 
+include utils.pug
 
 append head
   link(rel="stylesheet" href="/stylesheets/index.css")
@@ -8,26 +8,30 @@ append head
 
 block content
   body
-  .container 
+  .container
     div.registerContainer
       div.register
-        .signupTitle Sign up for SeenScenes 
+        .signupTitle Sign up for SeenScenes
         .signupPara1 Sign up to see what your friends are watching, get film recommendations,
         .signupPara2 and join the world's largest community of watchers.
-        .linkedIn 
+        div
+          form(action="/users/login/demo-user" method="post" class="demo-form-register")
+            button.demoBtn(type="submit") Demo Our Site
+        div
+        .linkedIn
           p Checkout our developers...
           div
-            a.linkedLink(href="https://www.linkedin.com/in/stephen1010/")   
+            a.linkedLink(href="https://www.linkedin.com/in/stephen1010/")
               button.sb Stephen Szelpal
           div
-            a.linkedLink(href="https://www.linkedin.com/in/jevon-timmons/")   
+            a.linkedLink(href="https://www.linkedin.com/in/jevon-timmons/")
               button.jb Jevon Timmons
           div
-            a.linkedLink(href="https://www.linkedin.com/in/matthew-johnston-9b6bb3181/")   
+            a.linkedLink(href="https://www.linkedin.com/in/matthew-johnston-9b6bb3181/")
               button.mb Matthew Johnston
         if errors
           +validationErrorSummary(errors)
-        .actFormContainer 
+        .actFormContainer
           .actFormTitle Sign Up with Email and Choose a Username
           form(action="/users/register" method="post")
               input(type="hidden" name="_csrf" value=token)
@@ -39,33 +43,29 @@ block content
                 .email
                   input(type='email' name='email' class='user-input' placeholder='you@yours.com')
                 .labels Password
-                .password 
+                .password
                   input(type='password' name='password' class='pass-input' )
                 .labels Confirm Password
                 .password
                   input(type='password' name='confirmPassword' class='pass-input' )
                 .submitContainer
-                  .button 
-                    button.register-button(type="submit") Sign up 
+                  .button
+                    button.register-button(type="submit") Sign up
                   .already Already a member?
                   a.signInLink(href='/login') Sign in
                 .optional optional
                 .labels Quick Bio
-                .biography 
-                  textarea(name="biography" cols="50" rows="5") 
+                .biography
+                  textarea(name="biography" cols="50" rows="5")
                 .favorite-genre
                   .labels.genre Go-To Genre
                     select(name="genreId")
-                      each genre in genres 
-                          option(value=genre.id)=genre.name 
-          .notice 
+                      each genre in genres
+                          option(value=genre.id)=genre.name
+          .notice
             .start By clicking 'Sign up' I agree to the SeenScenes
-            a.terms(href='https://legaltemplates.net/wp-content/uploads/2016/07/Soul-Bill-of-Sale-Are-You-Sure-You-Want-to-Do-This.docx') Terms of Service 
+            a.terms(href='https://legaltemplates.net/wp-content/uploads/2016/07/Soul-Bill-of-Sale-Are-You-Sure-You-Want-to-Do-This.docx') Terms of Service
             .end and confirm that I am at least 13 years of
           .notice2
             .start age.
             a.privacy(href='https://www.beaconseniornews.com/2020/03/03/327977/you-have-zero-privacy-get-over-it-') Read our Privacy Policy.
-    
-          
-
-

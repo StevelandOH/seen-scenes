@@ -121,8 +121,6 @@ router.post('/:id/reel', asyncHandler(async (req, res) => {
   if (!reeledMovie[0]) {
     await db.FilmReel.create({filmId, reelId, userId})
     res.redirect(`/films/${filmId}`)
-  } else {
-    throw new Error ('Movie Already in Reel')
   }
 }))
 

@@ -11,17 +11,17 @@ block content
     .container
       div.loginContainer
         div.login
-          .signupTitle Sign in to SeenScenes 
-          .linkedIn 
+          .signupTitle Sign in to SeenScenes
+          .linkedIn
             p Checkout our developers...
             div
-              a.linkedLink(href="https://www.linkedin.com/in/stephen1010/")   
+              a.linkedLink(href="https://www.linkedin.com/in/stephen1010/")
                 button.sb Stephen Szelpal
             div
-              a.linkedLink(href="https://www.linkedin.com/in/jevon-timmons/")   
+              a.linkedLink(href="https://www.linkedin.com/in/jevon-timmons/")
                 button.jb Jevon Timmons
             div
-              a.linkedLink(href="https://www.linkedin.com/in/matthew-johnston-9b6bb3181/")   
+              a.linkedLink(href="https://www.linkedin.com/in/matthew-johnston-9b6bb3181/")
                 button.mb Matthew Johnston
           if errors
             +validationErrorSummary(errors)
@@ -32,11 +32,15 @@ block content
               .email
                 input(type='email' name='email' class='user-input' placeholder='you@yours.com')
               .labels Password
-              .password 
+              .password
                 input(type='password' name='password' class='pass-input' )
               .submitContainer
-                .button 
-                  button.register-button(type="submit") Sign in 
-                  .notMember
-                    .already Not a member?
-                    a.signInLink(href='/') Sign up
+                .button
+                  button.register-button(type="submit") Sign in
+                  .extras
+                    .notMember
+                      .already Not a member?
+                      a.signInLink(href='/') Sign up
+          form(action="/users/login/demo-user" method="post" class="demo-form")
+            div(class="demo-text") Try the site !
+            button(type="submit" class="demo-link") Demo

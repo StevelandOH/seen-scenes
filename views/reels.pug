@@ -12,7 +12,7 @@ block content
     div(class="reels-page")
 
       div(class="reels-section")
-        div(class="reels-head") demouser's reels
+        div(class="reels-head")= `${user.username}'s reels`
         div(class="reels-reels")
           each reel in reels
             div(class="reel")

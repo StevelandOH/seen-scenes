@@ -169,7 +169,7 @@ form {
 
 .already {
     font-size: 8pt;
-    margin-right: -30px;
+    margin-right: -25px;
 }
 
 .signInLink {
@@ -308,4 +308,47 @@ form {
 
 .signupPara2 {
     margin-bottom: 15px;
+}
+
+.demo {
+  margin-top: 5px;
+}
+
+.demo-text {
+  font-size: 8pt;
+  margin-right: 200px;
+}
+
+.demo-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.demo-link {
+  text-decoration: underline;
+  background-color: transparent;
+  border: none;
+  margin-right: 215px;
+}
+
+.demo-link:hover {
+  cursor: pointer;
+}
+
+.demo-form-register {
+  justify-content: center;
+}
+
+.demoBtn {
+  border-radius: 3px;
+  margin: 5px;
+  height: 40px;
+  width: 250px;
+  border: 0.5px solid gray;
+  background-color: rgb(245, 245, 245);
+}
+
+.demoBtn:hover {
+  background-color: rgb(238, 238, 238);
 }
