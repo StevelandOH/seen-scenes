@@ -212,6 +212,7 @@ router.get(
             include: Film,
         });
         const user = await User.findOne({ where: { id: id } });
+        console.log("USER:::::::::::::::::::::", user)
         res.render('reels', { reels, user, title: 'Reels' });
     })
 );
