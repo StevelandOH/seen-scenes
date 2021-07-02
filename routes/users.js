@@ -185,8 +185,6 @@ router.get(
             include: Film,
             limit: 8,
         });
-        console.log(watchedReel);
-        console.log(watchedReel.Film);
 
         const reels = await Reel.findAll({
             where: { userId: id },
@@ -214,7 +212,6 @@ router.get(
             include: Film,
         });
         const user = await User.findOne({ where: { id: id } });
-        reels[0].Films.forEach((film) => console.log(film.title));
         res.render('reels', { reels, user, title: 'Reels' });
     })
 );

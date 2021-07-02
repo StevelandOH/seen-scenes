@@ -20,7 +20,6 @@ router.get('/', asyncHandler(async (req, res) => {
   const categorizedFilms = [28, 35, 27, 18]
   const otherFilms = films.filter((film)=> !categorizedFilms.includes(film.genreId))
 
-  console.log(actionFilms)
   res.render('films', {
     films,
     actionFilms,
@@ -73,7 +72,6 @@ router.post('/:id/review/new', asyncHandler(async (req, res) => {
 
 router.post('/:id/review/delete', asyncHandler(async (req, res) => {
   const { userId, filmId } = req.body
-  console.log(userId, filmId)
   const review = await db.Review.findOne({where: {userId: userId, filmId: filmId }})
 
 
@@ -120,8 +118,6 @@ router.post('/:id/reel', asyncHandler(async (req, res) => {
     where: {
       filmId, reelId, userId: req.session.auth.userId }})
 
-  console.log(reeledMovie)
-
   if (!reeledMovie[0]) {
     await db.FilmReel.create({filmId, reelId, userId})
     res.redirect(`/films/${filmId}`)
@@ -131,7 +127,6 @@ router.post('/:id/reel', asyncHandler(async (req, res) => {
 }))
 
 router.post("/search", asyncHandler(async (req, res) => {
-  console.log(movieAPI)
   const errors = ["We couldn't find any movies that match your search"];
   const search = `%${req.body.query}%`;
   if (req.body.query) {
@@ -155,7 +150,6 @@ router.post("/search", asyncHandler(async (req, res) => {
         }
 
         const responseJSON = await response.json();
-        console.log(response)
 
         const newMoviesArray = responseJSON.results.map(movie => {
           return {
@@ -171,19 +165,73 @@ router.post("/search", asyncHandler(async (req, res) => {
 
         newMoviesArray.splice(10);
 
-        return res.render('films', { newMoviesArray });
+        return res.render('search', { newMoviesArray });
 
       } catch (err) {
         console.error(err);
-        return res.render('films', { films, errors  });
+        return res.render('search', { films, errors  });
       }
     }
 
-    res.render('films', { films});
+    res.render('search', { films});
   } else {
     res.redirect("/");
   }
 }));
+// router.post("/search", asyncHandler(async (req, res) => {
+//   console.log(movieAPI)
+//   const errors = ["We couldn't find any movies that match your search"];
+//   const search = `%${req.body.query}%`;
+//   if (req.body.query) {
+//     const films = await db.Film.findAll({
+//       where: {
+//         title: {
+//           [Sequelize.Op.iLike]: search
+//         }
+//       }
+//     });
+
+//     if (!films.length) {
+
+//       const encodedSearchTerm = encodeURIComponent(req.body.query);
+
+//       try {
+//         const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${movieAPI}&language=en-US&query=${encodedSearchTerm}&page=1&include_adult=false`);
+
+//         if (!response.ok) {
+//           throw res;
+//         }
+
+//         const responseJSON = await response.json();
+//         console.log(response)
+
+//         const newMoviesArray = responseJSON.results.map(movie => {
+//           return {
+//             id: movie.id,
+//             title: movie.original_title,
+//             description: movie.overview,
+//             releaseDate: movie.release_date,
+//             posterPath: movie.poster_path,
+//             genreId: movie.genre_ids[0],
+//             releaseYear: movie.release_date.split('-')[0],
+//           }
+//         });
+
+//         newMoviesArray.splice(10);
+
+//         return res.render('films', { newMoviesArray });
+
+//       } catch (err) {
+//         console.error(err);
+//         return res.render('films', { films, errors  });
+//       }
+//     }
+
+//     res.render('films', { films});
+//   } else {
+//     res.redirect("/");
+//   }
+// }));
 
 router.post('/newFilm', asyncHandler(async (req, res) => {
 
